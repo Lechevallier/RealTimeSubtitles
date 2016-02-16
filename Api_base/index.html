@@ -26,6 +26,8 @@
 <button onclick="microphoneButton()" style="border: 0; background-color:transparent">
   <img id="status_img" src="mic.gif" alt="Start"></button>
 <button onclick="emailButton()">Create Email</button>
+<button onclick="validationButton()" style="border: 0; background-color:transparent">Validation</button>
+<button onclick="afficheTab()" style="border: 0; background-color:transparent">afficheTab</button>
 <div id="div_language">
   <select id="select_language" onchange="updateCountry()"></select>
   <select id="select_dialect"></select>
@@ -39,6 +41,69 @@ reco.statusImage('status_img');
 reco.finalResults('final_span');
 reco.interimResults('interim_span');
 reco.continuous = true;
+reco.maxAlternatives = 10;
+var interim_transcript = '';
+var eventTest;
+var myTab = [];
+
+function validationButton() {
+  validation(eventTest);
+}
+
+
+function addTab(result){
+  if(result != myTab[myTab.length-1]){
+    myTab.push(result);
+  }
+}
+
+function afficheTab(){
+  alert(myTab);
+}
+
+function validation(event){
+  for (var i = event.resultIndex; i < event.results.length; ++i) {
+      //si il n'a pas déjà été ajouté
+      if(event.results[i][0].transcript != myTab[myTab.length-1] && event.results[i][0].transcript != ''){
+        addTab(event.results[i][0].transcript);
+        event.results[i][0].transcript='';
+        appendSelectOptions('final_span', event.results[i]);
+        event.results[i].isFinal = true;
+        //alert(event.results[i][0].transcript);
+      }
+      document.getElementById('interim_span').innerHTML = interim_transcript;
+  }
+}
+
+
+// Handler for speech recognition results.
+reco.recognition.onresult = function(event) {
+  interim_transcript = ''
+  eventTest = event;
+  // Process all new results, both final and interim.
+  for (var i = event.resultIndex; i < event.results.length; ++i) {
+    if (event.results[i].isFinal){
+      validation(event);
+    } else {
+      interim_transcript += event.results[i][0].transcript;
+    }
+  }
+  document.getElementById('interim_span').innerHTML = interim_transcript;
+};
+
+// Create a new <select> element containing an <option> for each of the
+// speech_recognition_result alternatives.
+// Then append this <select> element to destination_id.
+function appendSelectOptions(destination_id, speech_recognition_result) {
+  var select = document.createElement('SELECT')  
+  for (var i = 0; i < speech_recognition_result.length; ++i) {
+    var option = document.createElement('OPTION')  
+    option.text = speech_recognition_result[i].transcript;
+    option.value = i;
+    select.options.add(option)  
+  } 
+  document.getElementById(destination_id).appendChild(select);
+}
 
 // Handler when user clicks microphone button.
 function microphoneButton() {
