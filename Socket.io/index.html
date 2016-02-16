@@ -4,27 +4,30 @@
 <head>
 	<title>Chat with socket.io and node.js</title>
 	<link href="steve.css">
+
 </head>
 <body>
+
+	<h1>Serveur</h1>
+
 	<div id="chat"></div>
 	<form id="send-message">
-		<input size="35" id="message"></input>
 		<input type="submit"></input>
 	</form>
 	
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script src="/socket.io/socket.io.js"></script>
 	<script>
+			
+	var socket = io.connect();
 		jQuery(function($){
-			var socket = io.connect();
-			var $messageForm = $('#send-message');
-			var $messageBox = $('#message');
+			
 			var $chat = $('#chat');
+			var $messageForm = $('#send-message');
 			
 			$messageForm.submit(function(e){
 				e.preventDefault();
-				socket.emit('send message', $messageBox.val());
-				$messageBox.val('');
+				socket.emit('send message',document.getElementById('interim_span').textContent);
 			});
 			
 			socket.on('new message', function(data){
@@ -33,9 +36,11 @@
 		});
 	</script>
 
-<h1>Web Speech API Demonstration</h1>
-<div id="status">
-</div>
+
+
+
+
+<div id="status"></div>
 <p>
 <div id="results">
   <span id="final_span" style="color:black"></span>
@@ -44,7 +49,6 @@
 <button onclick="microphoneButton()" style="border: 0; background-color:transparent">
   <img id="status_img" src="mic.gif" alt="Start"></button>
 <button onclick="emailButton()">Create Email</button>
-<button onclick="validationButton()" style="border: 0; background-color:transparent">Validation</button>
 <div id="div_language">
   <select id="select_language" onchange="updateCountry()"></select>
   <select id="select_dialect"></select>
@@ -60,12 +64,6 @@ reco.interimResults('interim_span');
 reco.continuous = true;
 reco.maxAlternatives = 10;
 
-function validationButton() {
-  for (var i = event.resultIndex; i < event.results.length; ++i) {
-      appendSelectOptions('final_span', event.results[i]);
-  }
-}
-
 // Handler for speech recognition results.
 reco.recognition.onresult = function(event) {
   var interim_transcript = '';
@@ -73,6 +71,7 @@ reco.recognition.onresult = function(event) {
   for (var i = event.resultIndex; i < event.results.length; ++i) {
     if (event.results[i].isFinal) {
       appendSelectOptions('final_span', event.results[i]);
+      socket.emit('send message', document.getElementById('final_span').getElementsByTagName('OPTION')[0].text);
     } else {
       interim_transcript += event.results[i][0].transcript;
     }
@@ -213,22 +212,32 @@ function updateCountry() {
 for (var i = 0; i < langs.length; i++) {
   select_language.options[i] = new Option(langs[i][0], i);
 }
-select_language.selectedIndex = 6;
+select_language.selectedIndex = 9;
 updateCountry();
 select_dialect.selectedIndex = 6;
 </script>
 
+<script>
+$(document).ready(function(){
+    $("#final_span").click(function(){
+        alert("Text: " + $("#final_span").text());
+
+		toArray();
+    })
+});
+
+</script>
 
 
+<script>
+function toArray(){
+	var texte = reco.final_transcript;
+	var array = texte.split(" ");
+	document.getElementById("message").innerHTML = array.join(" ");
+	
 
-
-
-
-
-
-
-
-
+}
+</script>
 
 
 </body>

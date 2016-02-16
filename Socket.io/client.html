@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+<head>
+	<title>Chat with socket.io and node.js</title>
+	<link href="steve.css">
+
+</head>
+<body>
+
+  <h1>Client</h1>
+
+	<div id="chat"></div>
+	
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="/socket.io/socket.io.js"></script>
+
+
+	<script>
+			
+	var socket = io.connect();
+		jQuery(function($){
+			
+			var $chat = $('#chat');
+			var $messageForm = $('#send-message');
+			
+			$messageForm.submit(function(e){
+				e.preventDefault();
+				socket.emit('send message',document.getElementById('interim_span').textContent);
+			});
+			
+			socket.on('new message', function(data){
+				$chat.append(data + " ");
+			});
+		});
+	</script>
+
+</body>
+</html>
