@@ -21,4 +21,8 @@ var socket = io.connect();
           }
           document.getElementById('chat').appendChild(select);
     });
+
+    socket.on('get update', function(data){
+        console.log(data);
+    });
   });

@@ -16,4 +16,9 @@ io.sockets.on('connection', function(socket){
 		console.log('new message');
 		io.sockets.emit('new message', data);
 	});
+
+	socket.on('set update', function(data){
+	    console.log('update');
+	    io.sockets.emit('get update', data);
+	});
 });
