@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Server Reveal</title>
+
+		<link rel="stylesheet" href="reveal.css">
+	</head>
+
+	<body>
+
+		  <script src="/socket.io/socket.io.js"></script>
+		  <script src="webspeech.js"></script>
+
+
+		<div id="chat"></div>
+		<div id="status"></div>
+		<div id="results">
+		  <span id="final_span" style="color:black"></span>
+		  <span id="interim_span" style="color:gray"></span>
+		</div>
+		<button onclick="microphoneButton()" style="border: 0; background-color:transparent">
+		  <img id="status_img" src="mic.gif" alt="Start"></button>
+		<div id="div_language">
+		  <select id="select_language" onchange="updateCountry()"></select>
+		  <select id="select_dialect"></select>
+		</div>
+
+		<div class="reveal">
+
+			<div class="slides">
+
+				<section>
+					<section>
+						<h2>Premier</h2>
+						<p>There's no theme included, so it will fall back on browser defaults.</p>
+						<aside class="notes">
+				        	Oh hey, these are some nontation, but you can see them if you open the speaker notes window (hit 's' on your keyboard)
+				    	</aside>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Premier</h2>
+						<p>There's no theme included, so it will fall back on browser defaults.</p>
+						<aside class="notes">
+				        	Oh hey, these are some nontation, but you can see them if you open the speaker notes window (hit 's' on your keyboard)
+				    	</aside>
+					</section>
+					<section>
+						<h2>Premier</h2>
+						<p>There's no theme included, so it will fall back on browser defaults.</p>
+					</section>
+				</section>
+				<section>
+					<h2>No Theme</h2>
+					<p>There's no theme included, so it will fall back on browser defaults.</p>
+					<aside class="notes">
+				        Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard). Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard). Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard). Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard). Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard)
+				    </aside>
+				</section>
+
+			</div>
+
+		</div>
+
+		
+		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+		<script src="reveal.js"></script>
+		<script src="note.js"></script>
+		<script src="socket_server_reveal.js"></script>
+  		<script src="reco.js"></script>
+			
+	</body>
+</html>
