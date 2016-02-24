@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>
+		Gabarit 01: largeur fluide, contenu sur toute la largeur
+	</title>
+	<!-- La feuille de styles "base.css" doit être appelée en premier. -->
+	<link rel="stylesheet" type="text/css" href="styles/base.css" media="all" />
+	<link rel="stylesheet" type="text/css" href="styles/modele01.css" media="screen" />
+</head>
+
+<body>
+
+<div id="global">
+
+	<div id="entete">
+		<h1>
+			<img alt="" src="picto/01.png" />
+			Gabarit 01
+		</h1>
+		<p class="sous-titre">
+			<strong>Caractéristiques:</strong>
+			largeur fluide,
+			contenu sur toute la largeur,
+			en-tête, contenu et pied de page.
+		</p>
+	</div><!-- #entete -->
+	
+	<div id="navigation">
+		<ul>
+			<li><a href="index.html">Accueil</a></li>
+			<li><a href="liste.html">Tous les gabarits</a></li>
+			<li><a href="utiliser.html">Utilisation</a></li>
+			<li><a href="licence.html">Licence</a></li>
+			<li><a href="credits.html">Crédits</a></li>
+		</ul>
+	</div><!-- #navigation -->
+	
+	<div id="contenu">
+		<h2>À propos du gabarit 01</h2>
+		<h3>Code HTML et CSS</h3>
+		<p>Ce gabarit est structuré de la manière suivante:</p>
+<pre><code>&lt;div id="global"&gt;
+	&lt;div id="entete"&gt;...&lt;/div&gt;
+	&lt;div id="navigation"&gt;...&lt;/div&gt;
+	&lt;div id="contenu"&gt;...&lt;/div&gt;
+	&lt;div id="pied"&gt;...&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+		<p>Il est mis en forme par deux feuilles de styles:</p>
+		<ol>
+			<li><a href="styles/base.css">base.css</a> (mise en forme minimale
+			du texte, commune à tous les gabarits)</li>
+			<li><strong><a href="styles/modele01.css">modele01.css</a></strong>,
+			qui contient tous les styles propres à ce gabarit, et que nous vous
+			invitons à consulter.</li>
+		</ol>
+		<p>Pour voir le détail du code HTML de cette page, utilisez la fonction
+		d'affichage de la source de votre navigateur web (ex: «Affichage &gt;
+		Code source de la page»).</p>
+		<h3>À noter</h3>
+		<p>Ce gabarit est très simple, et ne devrait pas nécessiter moult
+		explications. Deux points sont à noter tout de même:</p>
+		<ol>
+			<li>
+				<p>Le menu de navigation est <strong>horizontal</strong>,
+				alors que nous avons utilisé une liste non ordonnée (élément
+				HTML <code>ul</code>)pour le coder (voir le code HTML).
+				Comment se fait-ce?<br />
+				Ici, on obtient cette disposition grâce à la déclaration CSS
+				<code>display: inline;</code>, appliquée aux items de liste
+				(éléments HTML <code>li</code>).
+				</p>
+			</li>
+			<li>
+				<p>Le principal <strong>problème</strong> de ce gabarit, mis
+				à part son aspect très frustre, c'est que l'on place tout le
+				contenu dans un bloc qui prend 100% de la largeur de la
+				fenêtre du navigateur (avec 20px de padding à gauche et à
+				droite). Pour les petites résolutions (appareils mobiles,
+				écrans en 800&times;600&hellip;), c'est très bien, voire
+				même idéal. Mais en 1024&times;768 et pour les résolutions
+				supérieures, cela peut donner des choses illisibles avec des
+				<strong>lignes de texte interminables</strong>!</p>
+				<p>D'ailleurs, il est probable que vous soyez arrivé au même
+				constat rien qu'en tentant de lire ces explications sur votre
+				propre écran!</p>
+				<p>Ce problème est moins fort dans le cas d'un design sur deux
+				ou trois colonnes. Et, dans tous les cas, on peut l'éviter en
+				travaillant avec une <strong>largeur fixe</strong> (par
+				exemple 750px ou 900px), ou encore avec une <strong>largeur
+				fluide «intelligente»</strong> (voir les gabarits qui portent
+				cette mention).</p>
+			</li>
+		</ol>
+	</div><!-- #contenu -->
+
+	<div id="pied">
+		<p id="copyright">
+			Mise en page &copy; 2008
+			<a href="http://www.elephorm.com">Elephorm</a> et
+			<a href="http://www.alsacreations.com">Alsacréations</a>
+		</p>
+	
+		<p>Le contenu de mon pied de page. Nulla tincidunt tincidunt mi.
+		Curabitur iaculis, lorem vel rhoncus faucibus, felis magna fermentum
+		augue, et ultricies lacus lorem varius purus. Curabitur eu amet.</p>
+	</div><!-- #pied -->
+
+</div><!-- #global -->
+
+</body>
+</html>

@@ -18,8 +18,9 @@ reco.recognition.onresult = function(event) {
       for (var i = 0; i < document.getElementById('final_span').getElementsByTagName('OPTION').length; ++i) { 
       	tab_res.push(document.getElementById('final_span').getElementsByTagName('OPTION')[i].text);
       }
+      console.log(tab_res);
       socket.emit('send message', tab_res);
-      document.getElementById('final_span').textContent = '';
+      $('#final_span').empty();
     } else {
       interim_transcript += event.results[i][0].transcript;
     }

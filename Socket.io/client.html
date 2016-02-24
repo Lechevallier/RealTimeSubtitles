@@ -3,14 +3,42 @@
 <html>
 <head>
 	<title>Client</title>
-	<link href="steve.css">
+	<!-- La feuille de styles "base.css" doit être appelée en premier. -->
+	<link rel="stylesheet" type="text/css" href="Gabarits/styles/base.css" media="all" />
+	<link rel="stylesheet" type="text/css" href="Gabarits/styles/modele05.css" media="screen" />
 
 </head>
 <body>
 
   <h1>Client</h1>
+  	<div id="global">
 
-	<div id="chat"></div>
+		<div id="entete"> 
+			<h1>Entete</h1>
+			<img alt="" src="Gabarits/picto/05.png" />
+			<p class="sous-titre">
+				<strong>Caractéristiques:</strong>
+				menu vertical à gauche,
+				(fausses) colonnes de même hauteur,
+				largeur fluide
+			</p>
+		</div>
+
+		<div id="navigation">	
+			<ul>
+				<li><a href="index.html">Accueil</a></li>
+				<li><a href="liste.html">Tous les gabarits</a></li>
+				<li><a href="utiliser.html">Utilisation</a></li>
+				<li><a href="licence.html">Licence</a></li>
+				<li><a href="credits.html">Crédits</a></li>
+			</ul> 
+		</div>
+
+		<div id="contenu">
+			
+		</div>
+
+	</div>
 	
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script src="/socket.io/socket.io.js"></script>

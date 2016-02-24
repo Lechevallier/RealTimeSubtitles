@@ -54,6 +54,7 @@ Reveal.addEventListener( 'ready', function( event ) {
 
 Reveal.addEventListener( 'slidechanged', function( event ) { 
 
+	socket.emit('set current slide', [event.indexh,event.indexv]);
 	//si il y une note à afficher
 	//if (document.getElementsByTagName('section')[event.indexh].getElementsByClassName('notes').length != 0){
 		//on cherche dans le tableau à deux dimensions le numéro de slide correspondant à la note en Q

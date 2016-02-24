@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>
+		Gabarit 02 (variante): conteneur global aligné à droite, largeur fixe 750px
+	</title>
+	<!-- La feuille de styles "base.css" doit être appelée en premier. -->
+	<link rel="stylesheet" type="text/css" href="styles/base.css" media="all" />
+	<link rel="stylesheet" type="text/css" href="styles/modele02.css" media="screen" />
+	<style type="text/css" media="screen">
+	#global {
+		margin-right: 20px;
+		margin-left: auto;
+	}
+	</style>
+</head>
+
+<body>
+
+<div id="global">
+
+	<div id="entete">
+		<h1>
+			<img alt="" src="picto/02v.png" />
+			Gabarit 02 &mdash; variante
+		</h1>
+		<p class="sous-titre">
+			<strong>Caractéristiques:</strong>
+			conteneur global aligné à droite,
+			largeur fixe 750px
+		</p>
+	</div><!-- #entete -->
+
+	<div id="navigation">
+		<ul>
+			<li class="gauche"><a href="index.html">Accueil</a></li>
+			<li class="gauche"><a href="liste.html">Tous les gabarits</a></li>
+			<li class="droite"><a href="utiliser.html">Utilisation</a></li>
+			<li class="droite"><a href="licence.html">Licence</a></li>
+			<li class="droite"><a href="credits.html">Crédits</a></li>
+		</ul>
+	</div><!-- #navigation -->
+
+	<div id="contenu">
+		<h2>À propos du gabarit 02</h2>
+		<p>Ce gabarit est une variante du
+		<a href="modele02.html">Gabarit 02</a>. Il a la même structure HTML,
+		et il utilise les mêmes feuilles de style.</p>
+		<p>La seule modification apportée aux styles CSS se trouve dans le
+		code de cette page. La voici:</p>
+<pre><code>&lt;style type="text/css" media="screen"&gt;
+#global {
+	margin-right: 20px;
+	margin-left: auto;
+}
+&lt;/style&gt;</code></pre>
+		<p>Rien de bien méchant, comme vous pouvez le constater. Il suffit
+		d'une marge "auto" à gauche.</p>
+		<p>Notez aussi que l'on pourrait utiliser les marges automatiques pour
+		centrer horizontalement le conteneur global (et donc tout le site). Le
+		code est simplissime, il suffit d'utiliser les styles suivants:</p>
+		<pre><code>#global {
+	margin-right: auto;
+	margin-left: auto;
+}</code></pre>
+	</div><!-- #contenu -->
+
+	<div id="pied">
+		<p>
+			Le contenu de mon pied de page. Nulla tincidunt tincidunt mi.
+			Curabitur iaculis, lorem vel rhoncus faucibus, felis magna fermentum
+			augue, et ultricies lacus lorem varius purus. Curabitur eu amet.
+		</p>
+		<p id="copyright">
+			Mise en page &copy; 2008
+			<a href="http://www.elephorm.com">Elephorm</a> et
+			<a href="http://www.alsacreations.com">Alsacréations</a>
+		</p>
+	</div><!-- #pied -->
+
+</div><!-- #global -->
+
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>
+		Gabarit 04 (variante): minimaliste, menu vertical à droite, largeur fluide
+	</title>
+	<!-- La feuille de styles "base.css" doit être appelée en premier. -->
+	<link rel="stylesheet" type="text/css" href="styles/base.css" media="all" />
+	<link rel="stylesheet" type="text/css" href="styles/modele04.css" media="screen" />
+	<style type="text/css" media="screen">
+	#navigation {
+		float: right; /* On fait flotter le menu à droite plutôt qu'à gauche */
+	}
+	#contenu {
+		margin-left: 0; /* On remet à zéro la marge de gauche du contenu... */
+		margin-right: 20%; /* ... et on utilise la même marge, à droite */
+	}
+	#copyright {
+		margin-left: 0;
+		margin-right: 20%;
+		text-align: left;
+	}
+	</style>
+</head>
+
+<body>
+
+<div id="global">
+
+	<div id="entete">
+		<h1>
+			<img alt="" src="picto/04v.png" />
+			Gabarit 04 &mdash; variante
+		</h1>
+		<p class="sous-titre">
+			<strong>Caractéristiques:</strong>
+			minimaliste,
+			menu vertical à <em>droite</em>,
+			largeur fluide
+		</p>
+	</div><!-- #entete -->
+
+	<div id="navigation">
+		<ul>
+			<li><a href="index.html">Accueil</a></li>
+			<li><a href="liste.html">Tous les gabarits</a></li>
+			<li><a href="utiliser.html">Utilisation</a></li>
+			<li><a href="licence.html">Licence</a></li>
+			<li><a href="credits.html">Crédits</a></li>
+		</ul>
+	</div><!-- #navigation -->
+
+	<div id="contenu">
+		<h2>À propos du gabarit 04 (variante)</h2>
+		<h3>Code HTML et CSS</h3>
+		<p>Ce gabarit est une variante du
+		<a href="modele04.html">Gabarit 04</a>. Il a la même structure HTML,
+		et il utilise les mêmes feuilles de style.</p>
+		<p>La seule modification apportée aux styles CSS se trouve dans le
+		code de cette page. La voici:</p>
+<pre><code>&lt;style type="text/css" media="screen"&gt;
+#navigation {
+	float: right; /* On fait flotter le menu à droite plutôt qu'à gauche */
+}
+#contenu {
+	margin-left: 0; /* On remet à zéro la marge de gauche du contenu... */
+	margin-right: 20%; /* ... et on utilise la même marge, à droite */
+}
+&lt;/style&gt;</code></pre>
+		<p>Passer notre menu à droite est donc un jeu d'enfant.</p>
+
+		<h3>Attention!</h3>
+		<p>Cette variante sert avant tout à illustrer le fonctionnement
+		du positionnement flottant. En pratique, <strong>il est préférable
+		de ne pas placer un <em>menu de navigation</em> tout à droite de la
+		page</strong>.</p>
+		<p>En effet, la plupart des sites web ont un menu de navigation
+		horizontal sur toute la largeur du site, ou un menu de navigation
+		vertical situé <strong>à gauche</strong>. C'est une convention à
+		laquelle les internautes sont habitués. En plaçant votre menu de
+		navigation à droite (ou tout en bas, ou en plein milieu de votre
+		contenu&hellip;), vous prenez le risque d'avoir un menu peu visible,
+		et donc une mise en page inefficace!</p>
+	</div><!-- #contenu -->
+
+	<p id="copyright">
+		Mise en page &copy; 2008
+		<a href="http://www.elephorm.com">Elephorm</a> et
+		<a href="http://www.alsacreations.com">Alsacréations</a>
+	</p>
+
+</div><!-- #global -->
+
+</body>
+</html>

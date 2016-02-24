@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>
+		Gabarit 11: largeur fluide «intelligente», colonnes factices, positionnement flottant
+	</title>
+	<!-- La feuille de styles "base.css" doit être appelée en premier. -->
+	<link rel="stylesheet" type="text/css" href="styles/base.css" media="all" />
+	<link rel="stylesheet" type="text/css" href="styles/modele11.css" media="screen" />
+</head>
+
+<body>
+
+<div id="global">
+
+	<div id="entete">
+		<h1>
+			<img alt="" src="picto/11.png" />
+			<span>Gabarit 11</span>
+		</h1>
+		<p class="sous-titre">
+			<strong>Caractéristiques:</strong>
+			largeur fluide «intelligente»,
+			colonnes factices,
+			colonnes latérales positionnées en float
+		</p>
+	</div><!-- #entete -->
+
+	<div id="centre">
+	<div id="centre-bis">
+
+		<div id="navigation">
+			<ul>
+				<li><a href="index.html">Accueil</a></li>
+				<li><a href="liste.html">Tous les gabarits</a></li>
+				<li><a href="utiliser.html">Utilisation</a></li>
+				<li><a href="licence.html">Licence</a></li>
+				<li><a href="credits.html">Crédits</a></li>
+			</ul>
+		</div><!-- #navigation -->
+
+		<div id="secondaire">
+			<h3>Contenu secondaire</h3>
+			<p>Morbi vel erat non mauris convallis vehicula. Nulla et sapien. Integer tortor tellus, aliquam faucibus, convallis id, congue eu, quam. Mauris ullamcorper felis vitae erat.</p>
+			<p>Vivamus leo. Aliquam euismod libero eu enim. Nulla nec felis sed leo placerat imperdiet. Aenean suscipit nulla in justo. Suspendisse cursus rutrum augue.</p>
+		</div><!-- #secondaire -->
+
+		<div id="principal">
+		<h2>À propos du gabarit 11</h2>
+		<h3>Code HTML et CSS</h3>
+		<p>Ce gabarit est structuré de la manière suivante:</p>
+<pre><code>&lt;div id="global"&gt;
+	&lt;div id="entete"&gt;...&lt;/div&gt;
+	&lt;div id="centre"&gt;
+		&lt;div id="centre-bis"&gt;
+			&lt;div id="navigation"&gt;...&lt;/div&gt;
+			&lt;div id="principal"&gt;...&lt;/div&gt;
+			&lt;div id="secondaire"&gt;...&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div id="pied"&gt;...&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+		<p>Il est mis en forme par deux feuilles de styles:</p>
+		<ol>
+			<li><a href="styles/base.css">base.css</a> (mise en forme minimale
+			du texte, commune à tous les gabarits)</li>
+			<li><strong><a href="styles/modele11.css">modele11.css</a></strong>,
+			qui contient tous les styles propres à ce gabarit, et que je vous
+			invite à consulter.</li>
+		</ol>
+		<p>Pour voir le détail du code HTML de cette page, utilisez la fonction
+		d'affichage de la source de votre navigateur web (ex: «Affichage &gt;
+		Code source de la page»).</p>
+		<h3>À noter</h3>
+		<ol>
+			<li><p>Ce gabarit a une largeur de 90%, et est centré
+			horizontalement grâce aux marges automatiques. (Propriétés
+			CSS appliquées à <code>div#global</code>.)</p>
+			<p>En plus de cela, on a utilisé les propriétés
+			<code>min-width</code> et <code>max-width</code> pour l'empêcher
+			de prendre une largeur trop faible ou trop importante.</p>
+			<p>C'est cette utilisation conjointe des différentes propriétés
+			pour gérer la largeur de manière à la fois souple et précise que
+			nous appelons une «largeur fluide intelligente».</p>
+			<p>Si vous disposez d'un écran suffisamment grand, essayez de
+			redimensionner la fenêtre de votre navigateur pour voir comment
+			cette page s'adapte à ces changements.</p></li>
+			<li><p>Ce gabarit utilise la technique des <strong>colonnes
+			factices</strong> pour afficher trois colonnes de même hauteur
+			quelle que soit la hauteur des contenus. Mais comme la largeur
+			du conteneur principal est variable, <em>on ne peut pas utiliser
+			une simple image de fond</em> comme c'est le cas dans plusieurs
+			autres gabarits.</p>
+			<p>On utilise donc deux images de fond. La première, appliquée
+			à <code>div#centre</code>, dessine la colonne de gauche et la
+			colonne centrale (cf.
+			<a href="styles/img/11-colgauche.png">11-colgauche.png</a>). La
+			deuxième, appliquée à div#centre-bis, dessine la colonne de droite
+			(cf. <a href="styles/img/11-coldroite.png">11-coldroite.png</a>).
+			</p></li>
+			<li><p>Nous utilisons la propriété CSS float pour placer nos
+			trois blocs à la même hauteur plutôt que les uns en dessous
+			des autres.</p>
+			<p>Ici, les deux premières enfants de <code>div#centre</code>
+			sont flottants à gauche pour le premier et à droite pour le second
+			(il s'agit de <code>div#navigation</code> et de
+			<code>div#secondaire</code>).</p>
+			Le troisième et dernier enfant (<code>div#principal</code>) n'est
+			pas flottant, mais a des marges à gauche et à droite pour éviter
+			d'être (en partie) recouvert par les flottants.</p>
+			<p><strong>Attention:</strong> pour réussir cette mise en page
+			sans utiliser le positionnement absolu (qui peut être problématique,
+			voir les commentaires du gabarit 09), on a dû placer les deux
+			éléments flottants en premier dans le code. Par conséquent,
+			le contenu secondaire (bloc de droite) se retrouve placé <em>avant
+			</em> le contenu principal (bloc central) dans le code HTML.</p>
+			<p>D'autres configurations sont envisageables, mais elles ne
+			seront peut-être pas compatibles avec la largeur fluide et les
+			colonnes factices.</p></li>
+			<li><p>Pour éviter que les colonnes ne «débordent» de leur
+			conteneur, il est nécessaire de gérer le
+			<a href="http://web.covertprestige.info/test/03-elements-flottants-et-element-parent-1.html">
+			dépassement des flottants</a> (dans ce gabarit, on utilise
+			<code>div#centre-bis</code> pour cela &mdash; voir les styles du
+			gabarit pour les détails).</p></li>
+		</ol>
+		</div><!-- #principal -->
+
+	</div><!-- #centre-bis -->
+	</div><!-- #centre -->
+
+	<div id="pied">
+		<p>Le contenu de mon pied de page. Nulla tincidunt tincidunt mi. Curabitur iaculis, lorem vel rhoncus faucibus, felis magna fermentum augue, et ultricies lacus lorem varius purus. Curabitur eu amet.</p>
+		<p id="copyright">
+			Mise en page &copy; 2008
+			<a href="http://www.elephorm.com">Elephorm</a> et
+			<a href="http://www.alsacreations.com">Alsacréations</a>
+		</p>
+	</div><!-- #pied -->
+
+</div><!-- #global -->
+
+</body>
+</html>

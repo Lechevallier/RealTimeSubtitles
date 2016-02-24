@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>
+		Gabarit 06: menu vertical à gauche, largeur fluide «intelligente», colonnes factices
+	</title>
+	<!-- La feuille de styles "base.css" doit être appelée en premier. -->
+	<link rel="stylesheet" type="text/css" href="styles/base.css" media="all" />
+	<link rel="stylesheet" type="text/css" href="styles/modele06.css" media="screen" />
+</head>
+
+<body>
+
+<div id="global">
+
+	<div id="entete">
+		<h1>
+			<img alt="" src="picto/06.png" />
+			<span>Gabarit 06</span>
+		</h1>
+		<p class="sous-titre">
+			<strong>Caractéristiques:</strong>
+			menu vertical à gauche,
+			largeur fluide «intelligente»,
+			colonnes factices
+		</p>
+	</div><!-- #entete -->
+	
+	<div id="navigation">
+		<ul>
+			<li><a href="index.html">Accueil</a></li>
+			<li><a href="liste.html">Tous les gabarits</a></li>
+			<li><a href="utiliser.html">Utilisation</a></li>
+			<li><a href="licence.html">Licence</a></li>
+			<li><a href="credits.html">Crédits</a></li>
+		</ul>
+	</div><!-- #navigation -->
+	
+	<div id="contenu">
+		<h2>À propos du gabarit 06</h2>
+		
+		<h3>Code HTML et CSS</h3>
+		<p>Ce gabarit est structuré de la manière suivante:</p>
+		
+<pre><code>&lt;div id="global"&gt;
+	&lt;div id="entete"&gt;...&lt;/div&gt;
+	&lt;div id="navigation"&gt;...&lt;/div&gt;
+	&lt;div id="contenu"&gt;...&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+		<p>Il est mis en forme par deux feuilles de styles:</p>
+		<ol>
+			<li>
+				<p>
+					<a href="styles/base.css">base.css</a>
+					(mise en forme minimale du texte,
+					commune à tous les gabarits)
+				</p>
+			</li>
+			<li>
+				<p>
+					<strong><a href="styles/modele06.css">modele06.css</a></strong>,
+					qui contient tous les styles propres à ce gabarit,
+					et que je vous invite à consulter.
+				</p>	
+			</li>
+		</ol>
+		<p>
+			Pour voir le détail du code HTML de cette page, utilisez la
+			fonction d'affichage de la source de votre navigateur web
+			(ex: «Affichage &gt; Code source de la page»).
+		</p>
+		
+		<h3>À noter</h3>
+		<ol>
+			<li>
+				<p>
+					<code>div#global</code> a ici une largeur de 90% de la
+					fenêtre du navigateur, et est centré horizontalement
+					grâce à la technique des <strong>marges
+					automatiques</strong>:<br />
+					<code>#global {margin: 0 auto;}</code>.
+				</p>
+				<p>
+					<strong>Cette largeur fluide est bridée</strong>
+					pour les grandes et très grandes
+					résolutions par un <code>max-width: 1000px</code>. On évite
+					également un rendu très dégradé pour une très faible
+					résolution avec un <code>min-width: 700px</code>.<br />
+					Concrètement, cela signifie que suivant la largeur de la
+					fenêtre du navigateur, la largeur de
+					<code>div#global</code> va osciller entre 700 et 1000px.
+				</p>
+			</li>
+			<li>
+				<p>
+					Dans ce gabarit, nous utilisons la propriété CSS
+					<code>float</code> pour placer deux blocs à la même
+					hauteur plutôt que l'un en dessous de l'autre. Voir
+					les notes de la feuille de style du gabarit pour en
+					savoir plus.
+				</p>
+			</li>
+			<li>
+				<p>
+					Le bloc de contenu n'a pas de couleur de fond: il laisse
+					apparaitre la couleur de fond de <code>div#global</code>.
+				</p>
+			</li>
+			<li>
+				<p>
+					Malgré ce que vous voyez à l'écran, <strong>il n'y a pas
+					deux colonnes de même hauteur dans cette page</strong>.
+					La colonne de droite est en effet bien plus longue que
+					le menu de gauche.<br />
+					L'impression de voir deux colonnes égales est crée grâce
+					à une image de fond, répétée en hauteur, sur
+					<code>div#global</code>
+					(<a href="styles/img/06-gauche.png">lien direct
+					vers l'image</a>), et par la couleur de fond de
+					<code>div#global</code>.
+				</p>
+				<p>
+					Cette astuce est notamment connue sous le nom de
+					<a href="http://www.pompage.net/pompe/colonnesfactices/">
+					technique des colonnes factices</a>.
+				</p>
+			</li>
+			<li>
+				<p>
+					Dernière petite subtilité: l'effet de volume en fausse 3D
+					est complété par une deuxième image de fond, placée en
+					haut à gauche de <code>div#contenu</code>
+					(<a href="styles/img/06-coin.png">voir cette image</a>).
+				</p>
+			</li>
+		</ol>
+		<p>
+			Comme vous pouvez le constater, ce gabarit a une construction
+			assez subtile, qui exploite les couleurs de fond, des images de
+			fond, des imbrications de blocs, et même une bordure de 20px
+			de large. Toutes ces astuces combinées forment un effet de
+			trompe-l'oeil.
+		</p>
+		<p>
+			On peut dire deux choses à propos de ces effets de trompe l'oeil:
+		</p>
+		<ol>
+			<li>
+				<strong>Avantage:</strong> ils sont souvent très puissants et
+				permettent &mdash; pour peu que l'on ait un peu d'expérience
+				&mdash; la réalisation de choses que l'on pensait trop
+				difficiles.
+			</li>
+			<li>
+				<strong>Inconvénient:</strong> les solutions techniques
+				trouvées seront efficaces, mais peu souples. Si les conditions
+				changent (modification même modérée du design, par exemple),
+				il faudra parfois trouver une solution nouvelle.
+			</li>
+		</ol>
+	</div><!-- #contenu -->
+	
+	<p id="copyright">
+		Mise en page &copy; 2008
+		<a href="http://www.elephorm.com">Elephorm</a> et
+		<a href="http://www.alsacreations.com">Alsacréations</a>
+	</p>
+
+</div><!-- #global -->
+
+</body>
+</html>

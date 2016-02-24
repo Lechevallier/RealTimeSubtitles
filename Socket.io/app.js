@@ -21,4 +21,9 @@ io.sockets.on('connection', function(socket){
 	    console.log('update');
 	    io.sockets.emit('get update', data);
 	});
+
+	socket.on('set current slide', function(data){
+	    console.log('set current slide');
+	    io.sockets.emit('get current slide', data);
+	});
 });

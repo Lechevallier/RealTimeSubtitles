@@ -1,7 +1,7 @@
 var socket = io.connect();
   jQuery(function($){
     
-    var $chat = $('#chat');
+    var $contenu = $('#contenu');
     var $messageForm = $('#send-message');
     
     $messageForm.submit(function(e){
@@ -19,7 +19,7 @@ var socket = io.connect();
             option.value = i;
             select.options.add(option)
           }
-          document.getElementById('chat').appendChild(select);
+          document.getElementById('contenu').appendChild(select);
     });
 
     socket.on('get update', function(data){

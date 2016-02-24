@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>
+		Gabarit 05: menu vertical à gauche, colonnes de même hauteur, largeur fluide
+	</title>
+	<!-- La feuille de styles "base.css" doit être appelée en premier. -->
+	<link rel="stylesheet" type="text/css" href="styles/base.css" media="all" />
+	<link rel="stylesheet" type="text/css" href="styles/modele05.css" media="screen" />
+</head>
+
+<body>
+
+<div id="global">
+
+	<div id="entete">
+		<h1>
+			<img alt="" src="picto/05.png" />
+			Gabarit 05
+		</h1>
+		<p class="sous-titre">
+			<strong>Caractéristiques:</strong>
+			menu vertical à gauche,
+			(fausses) colonnes de même hauteur,
+			largeur fluide
+		</p>
+	</div><!-- #entete -->
+
+	<div id="navigation">
+		<ul>
+			<li><a href="index.html">Accueil</a></li>
+			<li><a href="liste.html">Tous les gabarits</a></li>
+			<li><a href="utiliser.html">Utilisation</a></li>
+			<li><a href="licence.html">Licence</a></li>
+			<li><a href="credits.html">Crédits</a></li>
+		</ul>
+	</div><!-- #navigation -->
+
+	<div id="contenu">
+		<h2>À propos du gabarit 05</h2>
+		<h3>Code HTML et CSS</h3>
+		<p>Ce gabarit est structuré de la manière suivante:</p>
+<pre><code>&lt;div id="global"&gt;
+	&lt;div id="entete"&gt;...&lt;/div&gt;
+	&lt;div id="navigation"&gt;...&lt;/div&gt;
+	&lt;div id="contenu"&gt;...&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+		<p>Il est mis en forme par deux feuilles de styles:</p>
+		<ol>
+			<li><a href="styles/base.css">base.css</a> (mise en forme minimale
+			du texte, commune à tous les gabarits)</li>
+			<li><strong><a href="styles/modele05.css">modele05.css</a></strong>,
+			qui contient tous les styles propres à ce gabarit, et que je vous
+			invite à consulter.</li>
+		</ol>
+		<p>Pour voir le détail du code HTML de cette page, utilisez la fonction
+		d'affichage de la source de votre navigateur web (ex: «Affichage &gt;
+		Code source de la page»).</p>
+		<h3>À noter</h3>
+		<ol>
+			<li><p>L'aplat de couleur qui remplit à la fois l'en-tête et la
+			colonne de gauche est en réalité une <strong>couleur de fond
+			appliquée au conteneur global</strong>
+			(<code>div#global</code>).</p></li>
+			<li><p>Dans ce gabarit, nous utilisons la propriété CSS
+			<code>float</code> pour placer deux blocs à la même hauteur plutôt
+			que l'un en dessous de l'autre. Voir les notes de la feuille de
+			style du gabarit pour en savoir plus.</p></li>
+			<li><p>Grâce à la couleur de fond de <code>div#global</code>,
+			ce gabarit <strong>simule deux colonnes de même hauteur</strong>.
+			En réalité, les blocs placés à gauche (menu) et à droite (contenu)
+			n'ont pas la même hauteur, contrairement à ce que l'on obtiendrait
+			avec les cellules d'un tableau. La supercherie sera d'ailleurs
+			révélée si le contenu de droite est plus court que celui de gauche.
+			</p>
+			<p>Il existe une version plus évoluée de cette astuce, qui utilise
+			une image de fond. Il s'agit de la technique dite des
+			<strong>colonnes factices</strong>, qui permet de simuler des
+			colonnes de même hauteur quelle que soit la hauteur réelle des
+			contenus. Tous les gabarits ayant «colonnes factices» dans leur
+			descriptif utilisent cette technique.</p></li>
+			<li><p>Pour éviter que les colonnes ne «débordent» de leur
+			conteneur, il est nécessaire de gérer le
+			<a href="http://web.covertprestige.info/test/03-elements-flottants-et-element-parent-1.html">
+			dépassement des flottants</a> (dans ce gabarit, on utilise
+			<code>div#global</code> pour cela &mdash; voir les styles du
+			gabarit pour les détails).</p></li>
+		</ol>
+	</div><!-- #contenu -->
+
+</div><!-- #global -->
+
+</body>
+</html>

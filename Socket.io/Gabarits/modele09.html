@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>
+		Gabarit 09: largeur fluide, trois colonnes, positionnement absolu
+	</title>
+	<!-- La feuille de styles "base.css" doit être appelée en premier. -->
+	<link rel="stylesheet" type="text/css" href="styles/base.css" media="all" />
+	<link rel="stylesheet" type="text/css" href="styles/modele09.css" media="screen" />
+</head>
+
+<body>
+
+<div id="global">
+
+	<div id="entete">
+		<h1>
+			<img alt="" src="picto/09.png" />
+			<span>Gabarit 09</span>
+		</h1>
+		<p class="sous-titre">
+			<strong>Caractéristiques:</strong>
+			minimaliste,
+			largeur fluide,
+			colonnes latérales positionnées en absolu
+		</p>
+	</div><!-- #entete -->
+
+	<div id="centre">
+		<div id="navigation">
+			<ul>
+				<li><a href="index.html">Accueil</a></li>
+				<li><a href="liste.html">Tous les gabarits</a></li>
+				<li><a href="utiliser.html">Utilisation</a></li>
+				<li><a href="licence.html">Licence</a></li>
+				<li><a href="credits.html">Crédits</a></li>
+			</ul>
+		</div><!-- #navigation -->
+
+		<div id="principal">
+			<h2>À propos du gabarit 09</h2>
+			<h3>Code HTML et CSS</h3>
+			<p>Ce gabarit est structuré de la manière suivante:</p>
+<pre><code>&lt;div id="global"&gt;
+	&lt;div id="entete"&gt;...&lt;/div&gt;
+	&lt;div id="centre"&gt;
+		&lt;div id="navigation"&gt;...&lt;/div&gt;
+		&lt;div id="principal"&gt;...&lt;/div&gt;
+		&lt;div id="secondaire"&gt;...&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+			<p>Il est mis en forme par deux feuilles de styles:</p>
+			<ol>
+				<li><a href="styles/base.css">base.css</a> (mise en forme minimale
+				du texte, commune à tous les gabarits)</li>
+				<li><strong><a href="styles/modele09.css">modele09.css</a></strong>,
+				qui contient tous les styles propres à ce gabarit, et que je vous
+				invite à consulter.</li>
+			</ol>
+			<p>Pour voir le détail du code HTML de cette page, utilisez la fonction
+			d'affichage de la source de votre navigateur web (ex: «Affichage &gt;
+			Code source de la page»).</p>
+			<h3>À noter</h3>
+			<ol>
+				<li><p>Ce gabarit utilise le <strong>positionnement
+				absolu</strong> pour les colonnes de gauche et de droite.</p>
+				<p>Les blocs <code>div#navigation</code> et
+				<code>div#secondaire</code> sont positionnés en absolu <em>par
+				rapport à leur conteneur</em>, <code>div#centre</code>,
+				positionné en relatif.</p>
+				</li>
+				<li><p>Le conteneur global (<code>div#global</code>) a une
+				largeur fluide. Mais on pourrait aussi bien lui donner une
+				largeur fixe, ou jouer avec les propriétés
+				<code>max-width</code> et <code>min-width</code> pour limiter
+				sa largeur.</p></li>
+				<li><p><strong>Attention:</strong> si nous souhaitons placer
+				un pied de page dans ce gabarit, il faudra nécessairement le
+				placer (visuellement) sous le contenu central. En effet, si le
+				pied de page s'étend sur toute la largeur de
+				<code>div#global</code> il risque d'être survolé par les
+				colonnes latérales positionnées en absolu.</p>
+				<p>Pour rappel, un élément positionné en absolu est «ignoré»
+				par les autres éléments de la page qui ne sont pas des
+				descendants de l'élément positionné en absolu. (Voilà pourquoi
+				on utilise souvent les flottants pour positionner les
+				principaux blocs d'une page web.)</p></li>
+			</ol>
+		</div><!-- #principal -->
+
+		<div id="secondaire">
+			<h3>Contenu secondaire</h3>
+			<p>Morbi vel erat non mauris convallis vehicula. Nulla et sapien. Integer tortor tellus, aliquam faucibus, convallis id, congue eu, quam. Mauris ullamcorper felis vitae erat.</p>
+			<p>Vivamus leo. Aliquam euismod libero eu enim. Nulla nec felis sed leo placerat imperdiet. Aenean suscipit nulla in justo. Suspendisse cursus rutrum augue.</p>
+			<p id="copyright">
+				Mise en page &copy; 2008
+				<a href="http://www.elephorm.com">Elephorm</a> et
+				<a href="http://www.alsacreations.com">Alsacréations</a>
+			</p>
+		</div><!-- #secondaire -->
+
+	</div><!-- #centre -->
+
+</div><!-- #global -->
+
+</body>
+</html>
