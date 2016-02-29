@@ -1,60 +1,57 @@
 Reveal.initialize({showNotes: true});
 
 var myNotes = []; //num_diapo_h, num_diapo_v, text
+
 var num_diapo_h = 0;
 var num_diapo_v = 0;
-var nb_diapo_v = 0;
-var size_section = document.getElementsByTagName('section').length;
+var currentIndexH = 0;
+var currentIndexV = 0;
 
-for(i=0;i<size_section;i++){
+countSlide();
+function countSlide(){
 
-	var size_subsection = document.getElementsByTagName('section')[i].getElementsByTagName('section').length;
+	var nb_diapo_v = 0;
+	var size_section = $('section').length;
 
-	//Si il y a des sous-sections
-	if (size_subsection != 0){
-		nb_diapo_v = size_subsection;
-	}
-	else{
-		if (document.getElementsByTagName('section')[i].getElementsByClassName('notes').length != 0){
-			myNotes.push([num_diapo_h,num_diapo_v,"Ceci est un note à afficher à la diapo "+num_diapo_h+" "+num_diapo_v]);
+	for(i=0;i<size_section;i++){
+
+		var size_subsection = $('section')[i].getElementsByTagName('section').length;
+
+		//Si il y a des sous-sections
+		if (size_subsection != 0){
+			nb_diapo_v = size_subsection;
 		}
-		//console.log("num_diapo_v = "+num_diapo_v+" num_diapo_h "+num_diapo_h+ " nb_diapo_v "+nb_diapo_v);
-		//si c'est encore une sous-section
-		if(nb_diapo_v > 1){
-			nb_diapo_v--;
-			num_diapo_v++;
-		}else{
-			num_diapo_h++;
-			num_diapo_v = 0;
+		else{
+			if ($('section')[i].getElementsByClassName('notes').length != 0){
+				myNotes.push([num_diapo_h,num_diapo_v,"Ceci est un note à afficher à la diapo "+num_diapo_h+" "+num_diapo_v]);
+			}
+			//console.log("num_diapo_v = "+num_diapo_v+" num_diapo_h "+num_diapo_h+ " nb_diapo_v "+nb_diapo_v);
+			//si c'est encore une sous-section
+			if(nb_diapo_v > 1){
+				nb_diapo_v--;
+				num_diapo_v++;
+			}else{
+				num_diapo_h++;
+				num_diapo_v = 0;
+			}
 		}
-	}
 
+	}
 }
 
 
 
 Reveal.addEventListener( 'ready', function( event ) {
     // event.currentSlide, event.indexh, event.indexv
-    
-	var size_subsection = document.getElementsByTagName('section')[0].getElementsByTagName('section').length;
-
-	//Si il y a des sous-sections
-	if (size_subsection != 0){
-		if (document.getElementsByTagName('section')[0].getElementsByTagName('section')[0].getElementsByClassName('notes').length != 0){
-			document.getElementsByClassName('speaker-notes')[0].textContent = myNotes[0][2];
-		}
-	}
-	else{
-		if (document.getElementsByTagName('section')[0].getElementsByClassName('notes').length != 0){
-			document.getElementsByClassName('speaker-notes')[0].textContent = myNotes[0][2];
-		}
-	}
+    noteFirstSlide();
 });
 
 
-Reveal.addEventListener( 'slidechanged', function( event ) { 
+Reveal.addEventListener( 'slidechanged', function( event ) {
 
-	socket.emit('set current slide', [event.indexh,event.indexv]);
+	currentIndexH = event.indexh;
+	currentIndexV = event.indexv;
+	socket.emit('set current slide', [currentIndexH,currentIndexV]);
 	//si il y une note à afficher
 	//if (document.getElementsByTagName('section')[event.indexh].getElementsByClassName('notes').length != 0){
 		//on cherche dans le tableau à deux dimensions le numéro de slide correspondant à la note en Q
@@ -63,14 +60,31 @@ Reveal.addEventListener( 'slidechanged', function( event ) {
 			var num_diapo_v = myNotes[i][1];
 			var textContent = myNotes[i][2];
 
-			//console.log(myNotes[i][0] +" == "+ event.indexh +" && "+ myNotes[i][1] +" == "+ event.indexv);
-			if(num_diapo_h == event.indexh){
+			console.log(myNotes[i][0] +" == "+ event.indexh +" && "+ myNotes[i][1] +" == "+ event.indexv);
+			if(num_diapo_h == currentIndexH){
 				//si il y a des sous-diapos
-					if (num_diapo_v == event.indexv){
-						//console.log("i = "+i+" myNotes[i][0] = "+myNotes[i][0]+" currentSlide = "+(event.indexh+event.indexv)+" Affiche le texte "+myNotes[i][1]);
-						document.getElementsByClassName('notes')[i].textContent = textContent;
+					if (num_diapo_v == currentIndexV){
+						console.log("i = "+i+" myNotes[i][0] = "+myNotes[i][0]+" myNotes[i][1] = "+myNotes[i][1]+" Affiche le texte "+myNotes[i][2]);
+						$('.notes')[i].textContent = textContent;
 					}
 			}
 		}
 	//}
 });
+
+
+function noteFirstSlide(){
+	var size_subsection = $('section')[0].getElementsByTagName('section').length;
+
+	//Si il y a des sous-sections
+	if (size_subsection != 0){
+		if ($('section')[0].getElementsByTagName('section')[0].getElementsByClassName('notes').length != 0){
+			$('.speaker-notes')[0].textContent = myNotes[0][2];
+		}	
+	}
+	else{
+		if ($('section')[0].getElementsByClassName('notes').length != 0){
+			$('.speaker-notes')[0].textContent = myNotes[0][2];
+		}
+	}
+}

@@ -21,6 +21,9 @@ var myNotes = []; //num_diapo_h, num_diapo_v, text
 			socket.on('new message', function(data){
           traitementData(data);
           traitementEvent();
+          fillMyNotes();
+          console.log('update');
+          socket.emit('set update',myNotes);
 			});
 
       /* 
@@ -38,31 +41,42 @@ var myNotes = []; //num_diapo_h, num_diapo_v, text
 
 
     /* 
+    reçois un tableau contenant le n° dela slide horizontale puis verticale courante 
     envoie le texte courant à reveal, puis change les numéro de slide
     */
     function traitementSlide(data){
 
       //on remplis le tableau avant de changer les indices
+      fillMyNotes();
+
+      console.log('update');
+      socket.emit('set update',myNotes);
+
+      currentIndexH = data[0];
+      currentIndexV = data[1];
+      //$('#contenu').empty();
+   
+    }
+
+
+    /* 
+    ajoute le texte corrigé dans le tableau myNotes en fonction de la slide courante
+    */
+    function fillMyNotes(){
+
       function checkIndice(tab){
         return tab[0] == currentIndexH && tab[1] == currentIndexV;
       }
       //findIndex Returns the index of the first element in an array that pass a test
       var firstCheckIndice = myNotes.findIndex(checkIndice);
       if (myNotes.findIndex(checkIndice) != -1){
-        myNotes[firstCheckIndice][2] += update();
+        myNotes[firstCheckIndice][2] = toText();
       }
       else{
-        myNotes.push([currentIndexH,currentIndexV,update()]);
+        myNotes.push([currentIndexH,currentIndexV,toText()]);
       }
-      console.log('update');
-      socket.emit('set update',[currentIndexH,currentIndexV,update()]);
 
-      currentIndexH = data[0];
-      currentIndexV = data[1];
-      $('#contenu').empty();
-   
     }
-
 
 
     /* 
@@ -71,8 +85,10 @@ var myNotes = []; //num_diapo_h, num_diapo_v, text
     function traitementEvent(){
 
         $('select').change(function() { 
+            fillMyNotes();
             console.log('update');
-            socket.emit('set update',[currentIndexH,currentIndexV,update()]);
+            console.log($('select option:selected').val())
+            socket.emit('set update',myNotes);
         } );
 
         $(contenu).fadeOut("slow",function(){
@@ -104,7 +120,7 @@ var myNotes = []; //num_diapo_h, num_diapo_v, text
     /*
     retourne sous forme de texte ce qui est écris dans les selects et les spans
     */
-    function update(){
+    function toText(){
       console.log(data_opt);
       var text_temp = "";
       //selectionne chaque "enfant" de contenu et lui applique une fonction (comme un for)
