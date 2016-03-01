@@ -19,6 +19,7 @@ var myNotes = []; //num_diapo_h, num_diapo_v, text
       reçois un tableau contenant toute les variantes de ce qui a été reconnu par Google Speech
       */
 			socket.on('new message', function(data){
+          data_opt=[];
           traitementData(data);
           traitementEvent();
           fillMyNotes();
@@ -191,13 +192,24 @@ var myNotes = []; //num_diapo_h, num_diapo_v, text
     }
 
     /*
-    Affiche le contenu de data_opt dans la page HTML
+    Affiche le contenu de data_opt dans les balises adéquat de la page HTML
     Créer un select si il y a plusieurs alternative, un span sinon
     */
     function printData(){
-      //vide le contenu
-      $('#contenu').empty();
 
+      //écris le résultat dans la bonne balise h3
+      var temp = '#'+currentIndexH+''+currentIndexV;
+      if($(temp).length == 0){
+        div = document.createElement('DIV');
+        div.id = currentIndexH+""+currentIndexV;
+        h3 = document.createElement('h3');
+        h3.textContent = "Slide "+currentIndexH+";"+currentIndexV;
+        div.appendChild(h3);
+      }else{
+        div = $(temp)[0];
+      }
+
+      //créer un select si il y a plusieurs alternative, un span sinon
       for (var mot = 0; mot < data_opt.length; ++mot) {
         //Si il y a plus d'une alternative, on créer un Select
         if(data_opt[mot].length>1){
@@ -208,13 +220,14 @@ var myNotes = []; //num_diapo_h, num_diapo_v, text
             option.value = alter;
             select.options.add(option);
           }
-          document.getElementById('contenu').appendChild(select);
+          div.appendChild(select);
         }
         else{
           span = document.createElement('SPAN');
           span.innerHTML = data_opt[mot][0]+" ";
-          document.getElementById('contenu').appendChild(span);
+          div.appendChild(span);
         }
+        document.getElementById('contenu').appendChild(div);
       }
 
     }
