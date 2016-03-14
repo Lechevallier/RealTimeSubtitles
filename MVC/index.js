@@ -6,7 +6,7 @@ server = require('http').createServer(app).listen(3000),
 io = require('socket.io').listen(server);
 	
 // Import the engine file
-var engine = require('./engine');
+var moteur = require('./moteur');
 
 
 app.use('/', express.static(__dirname));
@@ -18,5 +18,5 @@ app.get('/', function(req, res){
 //Start a new client session
 io.sockets.on('connection', function(socket){
 	console.log('new session');
-	engine.startSession(io,socket);
+	moteur.startSession(io,socket);
 });

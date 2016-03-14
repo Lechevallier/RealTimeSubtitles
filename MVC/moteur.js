@@ -1,6 +1,16 @@
-var io;
+var sio;
 var SessionSocket;
 
+exports.startSession = function(io,socket){
+	sio = io;
+	SessionSocket=socket;
+	SessionSocket.emit('connected',{message : "un prof est connecte!"});
+	
+	
+	//Host events
+	
+	//Student events
+}
 
 var currentH;
 var currentV;
