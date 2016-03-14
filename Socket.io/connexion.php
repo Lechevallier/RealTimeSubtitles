@@ -1,15 +1,12 @@
 <?php
-// On démarre la session AVANT d'écrire du code HTML
+//Ouvre la session
 session_start();
-// On s'amuse à créer quelques variables de session dans $_SESSION
+//Initialise nom et prenom utilisateur
 $_SESSION['prenom'] = htmlspecialchars($_POST['prenom']);
 $_SESSION['nom'] = htmlspecialchars($_POST['nom']);
 
-?>
 
-<?php
-
-	if (isset $_SESSION['prenom'] && isset $_SESSION['nom']) {
+	if (!empty($_SESSION['prenom']) && !empty($_SESSION['nom'])) {
 	  header('localhost:3000/client.html');
 	  exit();
 	}
@@ -26,9 +23,13 @@ $_SESSION['nom'] = htmlspecialchars($_POST['nom']);
 
 			</head>
 			<body>
-
-				<h1> Connexion </h1>
+			
+				<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+				<script src="/socket.io/socket.io.js"></script>
+				<script src="webspeech.js"></script>
+				<script src="socket_client.js"></script>
 				
+				<h1> Connexion </h1>				
 				<form method="post" action="connexion.php">
 					<p>
 						<label for="nom">Votre nom</label> : <input type="text" name="nom" id="nom" />
@@ -40,6 +41,8 @@ $_SESSION['nom'] = htmlspecialchars($_POST['nom']);
 						<input type="submit" value="Connexion" ></code>
 					</p>
 			</form>
+			
+			<p><a href="connexion.php">Deconnexion</a></p>
 
 			</body>
 			</html>
