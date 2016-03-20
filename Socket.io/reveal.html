@@ -1,6 +1,9 @@
 <?php
-// On démarre la session AVANT d'écrire du code HTML
+//Ouvre la session
 session_start();
+//Initialise nom et prenom utilisateur
+$_SESSION['prenom'] = htmlspecialchars($_POST['prenom']);
+$_SESSION['nom'] = htmlspecialchars($_POST['nom']);
 ?>
 
 <!doctype html>
@@ -18,8 +21,7 @@ session_start();
 
 		  <script src="/socket.io/socket.io.js"></script>
 		  <script src="webspeech.js"></script>
-
-
+		
 		<div id="contenu"></div>
 		<div id="status"></div>
 		<div id="results">
