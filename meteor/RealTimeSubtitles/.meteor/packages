@@ -20,3 +20,9 @@ autopublish             # Publish all data to the clients (for prototyping)
 insecure
 accounts-password
 accounts-ui
+twbs:bootstrap
+underscore
+random
+ogamedia:timer
+kookoskar:bootstrap-select
+gunjansoni:html5-api

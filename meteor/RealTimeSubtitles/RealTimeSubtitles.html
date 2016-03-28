@@ -3,51 +3,112 @@
 </head>
 
 <body>
-  <p class="login">
+	<p class="login">
 	  {{> loginButtons}}
 	</p>
-
+	<button type="button" class="btn btn-default btn-circle"><i class="glyphicon glyphicon-ok"></i></button>
 	<h1>Welcome to LiveSubtitle!</h1>
-
 	{{> addCourseForm}}
-
-  {{> coursesTables}}
-
-  {{> collaborator}}
+  	{{> coursesTables}}
+  	{{> displaySlide}}
 
 </body>
 
 
 
 
-<template name="collaborator">
-	{{#each display}}
-		<p class='displaySlide {{displaySlideCss}}'>
-			<h3> Slide n° {{numH}}.{{numV}}</h3>
-			{{#each notes}}
-				<span class='displayWord {{displayWordCss}}'>{{text}}</span>
-			{{/each}}
-		</P>
-	{{/each}}
+
+
+
+<template name="displaySlide">
+	{{#if thereIsSlide}}
+		{{#each displaySlide}}
+			<div id='displaySlide' class="panel {{displaySlideCss}}"> <!-- {{displaySlideCss}} -->
+				<div class="panel-heading"> 
+					<h3 class="panel-title"> Slide n° {{numH}}.{{numV}}</h3>
+				</div>
+				<div class="panel-body">
+				{{#if thereIsWord displaySlide}}
+					{{#each wordOptArray in notes}}
+						{{> displayWord var=wordOptArray}}
+					{{/each}}
+					{{>pushWord var=_id}}
+				{{/if}}
+				</div>
+			</div>
+		{{/each}}
+	{{/if}}
+</template>
+
+
+<template name="displayWord">
+	
+	{{#if addOpt var}}
+		{{> addWordOpt}}
+	{{else}}
+		{{reinitialiseAddWordOpt}}
+		{{>addWord var=var}}
+		{{#if selectOrSpan var}}
+ 			<select> <!-- class="selectpicker" data-width="fit" data-size="3" -->
+				{{#each wordOpt in var}}
+					<option >{{displayWord wordOpt}}</option><!-- data-subtext="{{displayScore wordOpt}}" -->
+				{{/each}}
+			</select>
+		{{else}}
+			<span class='displayWord {{displayWordCss}}'>{{displayWord var}}</span>
+		{{/if}}
+	{{/if}}
+	
 </template>
 
 
 
+
+<template name="addWordOpt">
+	<form>
+		<input type="text" name="addOpt" size="4"  placeholder="opt">
+	</form>
+</template>
+
+<template name="addWord">
+	{{#if addWordButton var}}
+		{{wordBefore var}}
+		<a href="#" id="addWordButton" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-plus"></span> </a>
+	{{/if}}
+	{{#if addWordForm var}}
+		<form>
+			<input type="text" name="addWord" size="4" placeholder="add">
+		</form>	
+	{{else}}	
+		{{reinitialiseAddWord}}
+	{{/if}}
+</template>
+
+<template name="pushWord">
+	{{#if pushWordButton var}}
+		<a href="#" id="pushWordButton" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-plus"></span> </a>
+	{{/if}}
+	{{#if pushWordForm var}}
+		<form>
+			<input type="text" name="pushWord" size="4" placeholder="push">
+		</form>	
+	{{/if}}
+</template>
 
 
 
 
 <template name="coursesTables">
 	{{#each course}}
-		<li class='course {{courseCss}}'> 
-			<b>{{name}}</b> created by {{author}}, <small><i>{{listener}} collaborators</i></small> {{slides}}
-
+		<li class='course'> 
+			<b>{{name}}</b> created by {{DisplayAuthor author}} at {{DisplayDate createdAt}}, <small><i>{{listener}} collaborators</i></small> {{slides}}
+			
 			{{#if mouseOnDelete}} 
-				<input type="button" class="remove" value="X">
+				<a id="remove" class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-trash"></span> </a>
 			{{/if}}
 			{{#if mouseOnJoin}}
 				{{#if currentUser}}
-					<input type="button" class="join" value="->">
+					<a id="join" class="btn btn-xs btn-primary"> <span class="glyphicon glyphicon-pencil"></span></a>
 				{{/if}}
 			{{/if}}
 		</li>
@@ -59,7 +120,7 @@
 <template name="addCourseForm">
 	{{#if currentUser}}
 		<form>
-			<input type="text" name="courseName">
+			<input type="text" name="courseName" placeholder="Type to add new course">
 			<input type="submit" value="Add Course">
 		</form>
 	{{/if}}
