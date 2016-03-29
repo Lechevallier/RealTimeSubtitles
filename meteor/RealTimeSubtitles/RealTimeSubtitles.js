@@ -198,14 +198,13 @@ if (Meteor.isClient) {
   },
  })
 
+Accounts.ui.config({
+  passwordSignupFields: "USERNAME_ONLY"
+});
+
 }
 
 // arr.splice(1, 0, "dAVID");
-
-
-
-
-
 
 
 if (Meteor.isServer) {

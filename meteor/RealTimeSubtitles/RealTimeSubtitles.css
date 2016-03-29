@@ -7,8 +7,9 @@
 }
 .login{
    position:absolute;
-   top:0;
-   right:45px;
+   top:0px;
+   left:0px;
+   
 }
 .mouseOnWord{
 	background-color: #FFFF99 ;
