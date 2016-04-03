@@ -1,4 +1,4 @@
-
+	
 CoursesCollection = new Mongo.Collection('courses');
 SlidesCollection = new Mongo.Collection('slides');
 WordsCollection = new Mongo.Collection('words');
