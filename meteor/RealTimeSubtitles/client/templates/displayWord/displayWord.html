@@ -1,0 +1,63 @@
+<template name="displayWord">
+	
+	{{#if addWordForm var}}
+		{{> addWordOpt}}
+	{{else}}
+		{{reinitialiseAddWordOpt}}
+		{{reinitialiseAddWord}}
+
+		{{>insertWord var=var}}
+
+		{{#if selectOrSpan var}}
+ 			<select class="selectpicker" data-width="fit" data-size="5" onclick="Session.set('wordToAddOptSelect', this.var[0]);">
+ 				{{#each wordOpt in var}}
+ 					<!-- {{> displayOption var=wordOpt}} -->
+ 					<option  data-subtext="{{displayScore wordOpt}}" id="{{id wordOpt}}">
+ 						{{displayWord wordOpt}}
+ 						{{> displayRemove var=wordOpt}}
+ 					</option>
+ 				{{/each}}
+ 				<option> 
+					{{> addWordOptSelect}}
+				</option>
+			</select>
+		{{else}}
+			<span class='displayWord {{displayWordCss}}'>{{displayWord var}}</span>
+		{{/if}}
+	{{/if}}
+</template>
+
+
+
+
+
+<template name="displayRemove">
+	{{#if wordFromCurrentUser var}}
+		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		</button>
+	{{/if}}
+</template>
+
+<template name="addWordOptSelect">
+	<form class="addWordOptSelect">
+		<input type="text" name="addOptSelect" size="8" placeholder="add option">
+		<input type="submit" value="Submit">
+	</form>
+</template>
+
+<template name="addWordOpt">
+	<form class="addWordOpt">
+		<input type="text" name="addWordOpt" size="4"  placeholder="opt">
+	</form>
+</template>
+
+<template name="insertWord">
+	{{#if insertWordForm var}}
+		<form>
+			<input type="text" name="insertWord" size="4" placeholder="insert">
+		</form>	
+	{{else}}	
+		{{reinitialiseInsertWord}}
+	{{/if}}
+</template>

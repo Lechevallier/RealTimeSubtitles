@@ -20,11 +20,9 @@ form {
      margin:0px;
      padding:0px;
 }
-<<<<<<< HEAD
 .displaySlide{
   width: 80%;
   margin: 0 auto; 
-  border-color: RGB(254,216,10);
 }
 
 
@@ -38,31 +36,6 @@ form {
   border-radius: 15px;
 }
 
-/* CUSTOMIZE THE CAROUSEL
--------------------------------------------------- */
-
-/* Carousel base class */
-.carousel {
-  height: 200px;
-  margin-bottom: 60px;
-}
-/* Since positioning the image, we need to help out the caption */
-.carousel-caption {
-  z-index: 10;
-}
-
-/* Declare heights because of positioning of img element */
-.carousel .item {
-  height: 200px;
-  background-color: #777;
-}
-.carousel-inner > .item > img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  min-width: 100%;
-  height: 200px;
-}
 
 /*
  * Globals
@@ -93,13 +66,13 @@ a:hover {
 html,
 body {
   height: 100%;
-  background-color: #333;
+  background-color: #fff;
   font-family: arial, Georgia, Serif;
 }
 body {
-  color: #fff;
   text-align: center;
-  text-shadow: 0 1px 3px rgba(0,0,0,.5);
+/*  color:  #000000;
+  text-shadow: 0 1px 3px rgba(0,0,0,.5);*/
 }
 
 .navbar{
@@ -175,23 +148,6 @@ body {
   color : black;
 }
 
-.panel-default > .panel-heading {
-  color: #333;
-  background-color: RGB(251,239,159);
-  border-color: RGB(254,216,10);
-}
-
-.panel-primary > .panel-heading {
-  color: #333;
-  background-color: RGB(221,194,2);
-  border-color: RGB(254,216,10);
-}
-
-.panel-info > .panel-heading {
-  color: #333;
-  background-color: RGB(252,243,180);
-  border-color: RGB(254,216,10);
-}
 
 button, input, optgroup, select, textarea {
   color : black;
