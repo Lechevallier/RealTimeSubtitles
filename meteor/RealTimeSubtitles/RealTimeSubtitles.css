@@ -5,15 +5,8 @@
 .selected{
 	background-color: #C0C0C0 ;
 }
-<<<<<<< HEAD
-.login{
-   position:absolute;
-   top:0;
-   right:95px;
-=======
 .navbar{
   position : absolute;
->>>>>>> 8f32a09cdf4345526d9c17a95cfa19e768549ea4
 }
 .mouseOnWord{
 	background-color: #FFFF99 ;
@@ -29,11 +22,7 @@ form {
 }
 <<<<<<< HEAD
 .displaySlide{
-  width: 75%;
-=======
-#displaySlide{
   width: 80%;
->>>>>>> 8f32a09cdf4345526d9c17a95cfa19e768549ea4
   margin: 0 auto; 
   border-color: RGB(254,216,10);
 }
