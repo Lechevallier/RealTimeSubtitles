@@ -8,7 +8,7 @@
 .login{
    position:absolute;
    top:0;
-   right:45px;
+   right:95px;
 }
 .mouseOnWord{
 	background-color: #FFFF99 ;
@@ -21,7 +21,7 @@ form {
      margin:0px;
      padding:0px;
 }
-#displaySlide{
+.displaySlide{
   width: 75%;
   margin: 0 auto; 
 }

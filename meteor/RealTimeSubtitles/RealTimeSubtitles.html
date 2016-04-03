@@ -22,37 +22,54 @@
 
 <template name="displaySlide">
 	{{#if thereIsSlide}}
+		<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 		{{#each displaySlide}}
-			<div id='displaySlide' class="panel {{displaySlideCss}}"> <!-- {{displaySlideCss}} -->
-				<div class="panel-heading"> 
-					<h3 class="panel-title"> Slide n° {{numH}}.{{numV}}</h3>
+			<div class="displaySlide panel {{displaySlideCss}}">
+				<div class="panel-heading" role="tab" id="headingTwo">
+				    <h4 class="panel-title">
+				        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#{{numH}}{{numV}}" aria-expanded="false" aria-controls="collapseTwo">Slide n° {{numH}}.{{numV}}
+				        </a>
+				    </h4>
 				</div>
+			</div>
+			<div id="{{numH}}{{numV}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
 				<div class="panel-body">
-				{{#if thereIsWord displaySlide}}
-					{{#each wordOptArray in notes}}
-						{{> displayWord var=wordOptArray}}
-					{{/each}}
-					{{>pushWord var=_id}}
-				{{/if}}
+					{{#if thereIsWord notes}}
+						{{#each wordOptArray in notes}}
+							{{> displayWord var=wordOptArray}}
+						{{/each}}
+						{{>pushWord var=_id}}
+					{{/if}}
 				</div>
 			</div>
 		{{/each}}
+		</div>
 	{{/if}}
 </template>
 
 
 <template name="displayWord">
 	
-	{{#if addOpt var}}
+	{{#if addWordForm var}}
 		{{> addWordOpt}}
 	{{else}}
 		{{reinitialiseAddWordOpt}}
-		{{>addWord var=var}}
+		{{reinitialiseAddWord}}
+
+		{{>insertWord var=var}}
+
 		{{#if selectOrSpan var}}
- 			<select> <!-- class="selectpicker" data-width="fit" data-size="3" -->
-				{{#each wordOpt in var}}
-					<option >{{displayWord wordOpt}}</option><!-- data-subtext="{{displayScore wordOpt}}" -->
-				{{/each}}
+ 			<select class="selectpicker" data-width="fit" data-size="5" onclick="Session.set('wordToAddOptSelect', this.var[0]);">
+ 				{{#each wordOpt in var}}
+ 					<!-- {{> displayOption var=wordOpt}} -->
+ 					<option  data-subtext="{{displayScore wordOpt}}" id="{{id wordOpt}}">
+ 						{{displayWord wordOpt}}
+ 						{{> displayRemove var=wordOpt}}
+ 					</option>
+ 				{{/each}}
+ 				<option> 
+					{{> addWordOptSelect}}
+				</option>
 			</select>
 		{{else}}
 			<span class='displayWord {{displayWordCss}}'>{{displayWord var}}</span>
@@ -63,35 +80,50 @@
 
 
 
+<template name="displayOption">
 
-<template name="addWordOpt">
-	<form>
-		<input type="text" name="addOpt" size="4"  placeholder="opt">
+	
+<!-- 	 -->
+</template>
+
+
+<template name="displayRemove">
+	{{#if wordFromCurrentUser var}}
+		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		</button>
+	{{/if}}
+</template>
+
+
+<template name="addWordOptSelect">
+	<form class="addWordOptSelect">
+		<input type="text" name="addOptSelect" size="8" placeholder="add option">
+		<input type="submit" value="Submit">
 	</form>
 </template>
 
-<template name="addWord">
-	{{#if addWordButton var}}
-		{{wordBefore var}}
-		<a href="#" id="addWordButton" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-plus"></span> </a>
-	{{/if}}
-	{{#if addWordForm var}}
+<template name="addWordOpt">
+	<form class="addWordOpt">
+		<input type="text" name="addWordOpt" size="4"  placeholder="opt">
+	</form>
+</template>
+
+<template name="insertWord">
+	{{#if insertWordForm var}}
 		<form>
-			<input type="text" name="addWord" size="4" placeholder="add">
+			<input type="text" name="insertWord" size="4" placeholder="insert">
 		</form>	
 	{{else}}	
-		{{reinitialiseAddWord}}
+		{{reinitialiseInsertWord}}
 	{{/if}}
 </template>
 
 <template name="pushWord">
-	{{#if pushWordButton var}}
-		<a href="#" id="pushWordButton" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-plus"></span> </a>
-	{{/if}}
 	{{#if pushWordForm var}}
 		<form>
 			<input type="text" name="pushWord" size="4" placeholder="push">
-		</form>	
+		</form>
 	{{/if}}
 </template>
 
