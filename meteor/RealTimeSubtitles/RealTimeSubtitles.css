@@ -5,10 +5,15 @@
 .selected{
 	background-color: #C0C0C0 ;
 }
+<<<<<<< HEAD
 .login{
    position:absolute;
    top:0;
    right:95px;
+=======
+.navbar{
+  position : absolute;
+>>>>>>> 8f32a09cdf4345526d9c17a95cfa19e768549ea4
 }
 .mouseOnWord{
 	background-color: #FFFF99 ;
@@ -16,14 +21,21 @@
 .selectedWord{
 	background-color: #FFFF66 ;
 }
+
 form {
      display:inline;
      margin:0px;
      padding:0px;
 }
+<<<<<<< HEAD
 .displaySlide{
   width: 75%;
+=======
+#displaySlide{
+  width: 80%;
+>>>>>>> 8f32a09cdf4345526d9c17a95cfa19e768549ea4
   margin: 0 auto; 
+  border-color: RGB(254,216,10);
 }
 
 
@@ -36,8 +48,169 @@ form {
   line-height: 1.42;
   border-radius: 15px;
 }
-*/
-body, html {text-align:center; padding:50px 0;}
+
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+
+/* Carousel base class */
+.carousel {
+  height: 200px;
+  margin-bottom: 60px;
+}
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+  z-index: 10;
+}
+
+/* Declare heights because of positioning of img element */
+.carousel .item {
+  height: 200px;
+  background-color: #777;
+}
+.carousel-inner > .item > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  height: 200px;
+}
+
+/*
+ * Globals
+ */
+
+/* Links */
+a,
+a:focus,
+a:hover {
+  color: #fff;
+}
+
+/* Custom default button */
+.btn-default,
+.btn-default:hover,
+.btn-default:focus {
+  color: #333;
+  text-shadow: none; /* Prevent inheritence from `body` */
+  background-color: #fff;
+  border: 1px solid #fff;
+}
+
+
+/*
+ * Base structure
+ */
+
+html,
+body {
+  height: 100%;
+  background-color: #333;
+  font-family: arial, Georgia, Serif;
+}
+body {
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 1px 3px rgba(0,0,0,.5);
+}
+
+.navbar{
+  font-weight: bold;
+}
+.navbar-inverse .navbar-brand{
+  font-size : 22px;
+}
+.cover-container {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* Padding for spacing */
+.inner {
+  padding: 30px;
+}
+
+/*
+ * Cover
+ */
+
+.cover {
+  padding: 0 20px;
+}
+.cover .btn-lg {
+  padding: 10px 20px;
+  font-weight: bold;
+}
+
+/*
+ * Footer
+ */
+
+.mastfoot {
+  color: #999; /* IE8 proofing */
+  color: rgba(255,255,255,.5);
+}
+
+
+/*
+ * Affix and center
+ */
+
+@media (min-width: 768px) {
+  /* Pull out the footer */
+  .mastfoot {
+    position: fixed;
+    bottom: 0;
+  }
+  /* Start the vertical centering */
+  .site-wrapper-inner {
+    vertical-align: middle;
+  }
+  /* Handle the widths */
+  .mastfoot,
+  .cover-container {
+    width:100%; /* Must be percentage or pixels for horizontal alignment */
+  }
+}
+
+@media (min-width: 992px) {
+  .mastfoot,
+  .cover-container {
+    width: 700px;
+  }
+}
+
+.displayWord{
+  color : black;
+}
+.pushWordButton{
+  color : black;
+}
+
+.panel-default > .panel-heading {
+  color: #333;
+  background-color: RGB(251,239,159);
+  border-color: RGB(254,216,10);
+}
+
+.panel-primary > .panel-heading {
+  color: #333;
+  background-color: RGB(221,194,2);
+  border-color: RGB(254,216,10);
+}
+
+.panel-info > .panel-heading {
+  color: #333;
+  background-color: RGB(252,243,180);
+  border-color: RGB(254,216,10);
+}
+
+button, input, optgroup, select, textarea {
+  color : black;
+}
+/*.content {
+  text-align:center; 
+  padding:50px 0;
+}*/
 
 /* The CSS */
 /*select {
