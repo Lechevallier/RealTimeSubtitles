@@ -1,9 +1,9 @@
 Router.configure ({
-	layoutTemplate:'home',
+	layoutTemplate:'layout',
 	loadingTemplate:'loading',
 	//waitOn: function(){return Meteor.subscribe('/');}
 });
 
 Router.route('/', function () {
-  this.render('navbar');
+  this.render('home');
 });
