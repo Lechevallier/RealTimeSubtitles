@@ -177,3 +177,7 @@ button, input, optgroup, select, textarea {
     appearance:none;
     cursor:pointer;
 }*/
+
+#main{
+	margin:100px;
+}

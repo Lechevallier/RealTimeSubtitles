@@ -1,9 +1,30 @@
 Router.configure ({
 	layoutTemplate:'layout',
 	loadingTemplate:'loading',
-	//waitOn: function(){return Meteor.subscribe('/');}
+	notFoundTemplate: 'notFound',
+	//waitOn: function(){return Meteor.subscribe('/reveal');}
 });
 
 Router.route('/', function () {
   this.render('home');
+});
+
+Router.route('/about',function(){
+	this.render('about');
+});
+
+Router.route('home',function(){
+		this.render('home');
+});
+
+
+Router.map(function () {
+  this.route('reveal', {
+  path: '/reveal',
+  template: 'reveal',
+  layoutTemplate: 'layout',
+  yieldTemplates: {
+    'affichage': {to: 'diapo'},
+    }
+  });
 });
