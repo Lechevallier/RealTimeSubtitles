@@ -9,18 +9,14 @@
 			{{#if selectOrSpan var}}
 				<span>
 		 			<select class="selectpicker" data-width="fit" data-size="10">
-		 				<optgroup>
-			 				{{#each wordOpt in var}}
-			 					{{> displayOption wordOpt=wordOpt}}
-			 				{{/each}}
-			 			</optgroup>
-			 			<optgroup>
-			 				<option>
-								<form class="addWordOptSelect">
-									<input type="text" name="addOptSelect" size="8" placeholder="add option">
-								</form>
-							</option>
-						</optgroup>
+		 				{{#each wordOpt in var}}
+		 					{{> displayOption wordOpt=wordOpt}}
+		 				{{/each}}
+		 				<option>
+							<form class="addWordOptSelect">
+								<input type="text" name="addOptSelect" size="8" placeholder="add option">
+							</form>
+						</option>
 					</select>
 				</span>
 			{{else}}

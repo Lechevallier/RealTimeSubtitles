@@ -33,7 +33,7 @@ Meteor.methods({
   },
   'addOptWordData': function(idSlide, textVar, idWordDest){
     if((idSlide!=undefined) && (idWordDest!=undefined)){
-      var idWordNewOpt = WordsCollection.insert({text:textVar, score:100, slide:idSlide, author:Meteor.userId()});
+      var idWordNewOpt = WordsCollection.insert({text:textVar, score:1, slide:idSlide, author:Meteor.userId()});
       var tab = SlidesCollection.findOne(idSlide).notes;
       console.log(idWordDest);
       for(i=0; i<tab.length;i++){
@@ -53,7 +53,7 @@ Meteor.methods({
   },
   'insertWordData': function(idSlide, textVar, idWordDest){
     if((idSlide!=undefined) && (idWordDest!=undefined)){
-      var idWordNewOpt = WordsCollection.insert({text:textVar, score:100, slide:idSlide, author:Meteor.userId()});
+      var idWordNewOpt = WordsCollection.insert({text:textVar, score:0, slide:idSlide, author:Meteor.userId()});
       var tab = SlidesCollection.findOne(idSlide).notes;
       tab.forEach(function (words, index){
       for(idWord of words){
@@ -72,7 +72,7 @@ Meteor.methods({
   },
   'pushWordData': function(idSlide, textVar){
     if(idSlide!=undefined){
-      var idWordNewOpt = WordsCollection.insert({text:textVar, score:100, slide:idSlide, author:Meteor.userId()});
+      var idWordNewOpt = WordsCollection.insert({text:textVar, score:0, slide:idSlide, author:Meteor.userId()});
       SlidesCollection.update(
         {_id: idSlide}, 
         {$push: {'notes': [idWordNewOpt]}}
@@ -89,6 +89,16 @@ Meteor.methods({
       );
     }else{
       console.log("Wrong idCourse "+idCourse);
+    }
+  },
+  'incWordScore': function(idWord){
+    if(idWord!=undefined){
+      WordsCollection.update(
+        {_id: idWord}, 
+        {$inc: {'score': 1}}
+      );
+    }else{
+      console.log("Wrong idWord "+idCourse);
     }
   },
   'removeCourseData': function(idCourse){

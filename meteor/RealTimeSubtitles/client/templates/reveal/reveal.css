@@ -2,10 +2,6 @@
 	height:5px;
 }
 
-.reveal aside.notes {
-	display:block;
-}
-
 .reveal .progress span {
 	background-color:black;
 }
@@ -23,3 +19,40 @@
 .reveal .controls div.navigate-down{
 	border-top-color:blue;
 }
+
+/*********************************************
+ * SPEAKER NOTES
+ *********************************************/
+.reveal aside.notes {
+  display: none; }
+
+.reveal .speaker-notes {
+  display: none;
+  position: absolute;
+  width: 70%;
+  max-height: 15%;
+  left: 15%;
+  bottom: 26px;
+  padding: 10px;
+  z-index: 1;
+  font-size: 18px;
+  line-height: 1.4;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 1);
+  overflow: auto;
+  box-sizing: border-box;
+  text-align: left;
+  font-family: Helvetica, sans-serif;
+  -webkit-overflow-scrolling: touch; }
+
+.reveal .speaker-notes.visible:not(:empty) {
+  display: block; }
+
+@media screen and (max-width: 1024px) {
+  .reveal .speaker-notes {
+    font-size: 14px; } }
+
+@media screen and (max-width: 600px) {
+  .reveal .speaker-notes {
+    width: 90%;
+    left: 5%; } }
