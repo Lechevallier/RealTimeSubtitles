@@ -1,15 +1,15 @@
 Template.displayWord.onRendered(function(){
   this.$('.selectpicker').selectpicker();
+  console.log('()')
 });
 
 var renderTimeout = false;
-Template.displayWord.onRendered(function(){
-  console.log('yo')
+Template.displayOption.onRendered(function(){
   if (renderTimeout !== false) {
     Meteor.clearTimeout(renderTimeout);
   }
   renderTimeout = Meteor.setTimeout(function() {
-    console.log('yo')
+    console.log('refresh')
     $('.selectpicker').selectpicker("refresh");
     renderTimeout = false;
   }, 100);
@@ -34,12 +34,46 @@ Template.displayWord.helpers({
   addWordForm: function(idWord){
     return ((idWord == Session.get('selectedWord')) && (idWord == Session.get('mouseOverWord')) && (idWord != Session.get('insertWordForm')));
   },
-  reinitialiseAddWordOpt: function(){
-    Session.set('addWordForm', null);
+})
+
+
+Template.displayWord.events({
+  'mouseover': function(){
+    Session.set('mouseOverWord', this.var[0]);
   },
-  reinitialiseAddWord: function(){
-    Session.set('addWordForm', null);
+  'click': function(){
+    Session.set('selectedWord', this.var[0]);
   },
+  'submit form': function(event){
+    event.preventDefault();
+    if(event.target.addOptSelect != undefined){
+      console.log(event.target.addOptSelect.value);
+      Meteor.call('addOptWordData', Session.get('selectedSlide'), event.target.addOptSelect.value, Session.get('selectedWord'));
+      event.target.addOptSelect.value = "";
+    }
+    else if(event.target.addWordOpt != undefined){
+      console.log(event.target.addWordOpt.value);
+      Meteor.call('addOptWordData', Session.get('selectedSlide'), event.target.addWordOpt.value, Session.get('selectedWord'));
+      event.target.addWordOpt.value = "";
+    }
+    else if(event.target.insertWord != undefined){
+      console.log(event.target.insertWord.value);
+      Meteor.call('insertWordData', Session.get('selectedSlide'), event.target.insertWord.value, Session.get('insertWordForm'));
+      Session.set('insertWordForm', null);
+      event.target.insertWord.value = "";
+    }
+    else{
+      console.log("submit non reconnu... :/");
+    }
+  },
+  'click .close': function(event){
+    var idWord = $('.selectpicker').find(":selected")[0].id;
+    console.log(idWord);
+    Meteor.call('removeWordData', idWord, function(result, error){$('.selectpicker').selectpicker('refresh')});
+  },
+})
+
+Template.displayOption.helpers({
   displayWord: function(idWord){
     return WordsCollection.findOne(idWord.toString()).text;
   },
@@ -52,66 +86,18 @@ Template.displayWord.helpers({
 })
 
 
-Template.displayWord.events({
-  'mouseover': function(){
-    Session.set('mouseOverWord', this.var[0]);
-  },
-  'click': function(){
-    console.log(this)
-    Session.set('selectedWord', this.var[0]);
-  },
-  'submit form': function(event){
-    event.preventDefault();
-    if(event.target.addOptSelect != undefined){
-      console.log(event.target.addOptSelect.value);
-      Meteor.call('addOptWordData', Session.get('selectedSlide'), event.target.addOptSelect.value, Session.get('selectedWord'), function(result, error){$('.selectpicker').selectpicker('refresh')});
-      event.target.addOptSelect.value = "";
-    }
-    else if(event.target.addWordOpt != undefined){
-      console.log(event.target.addWordOpt.value);
-      Meteor.call('addOptWordData', Session.get('selectedSlide'), event.target.addWordOpt.value, Session.get('addWordForm'), function(result, error){$('.selectpicker').selectpicker('refresh')});
-      Session.set('addWordForm', null);
-      event.target.addWordOpt.value = "";
-    }
-    else if(event.target.insertWord != undefined){
-      console.log(event.target.insertWord.value);
-      Meteor.call('insertWordData', Session.get('selectedSlide'), event.target.insertWord.value, Session.get('insertWordForm'), function(result, error){$('.selectpicker').selectpicker('refresh')});
-      Session.set('insertWordForm', null);
-      event.target.insertWord.value = "";
-    }
-    else{
-      console.log("submit non reconnu... :/");
-    }
-    $('.selectpicker').selectpicker("refresh");
-  },
-  'click .close': function(event){
-    console.log(event);
-    var idWord = $('.selectpicker').find(":selected")[0].id;
-    console.log(idWord);
-    Meteor.call('removeWordData', idWord, function(result, error){console.log(result);$('.selectpicker').selectpicker('refresh')});
-  },
-})
-
-
-
-
-
-
-
 
 
 
 Template.addWordOpt.events({
   'click form': function(){
     console.log(this.var[0]);
-    Session.set('addWordForm', this.var[0]);
   },
 })
 
-
 Template.insertWord.helpers({
   insertWordForm: function(idWord){
-    return ((idWord == Session.get('mouseOverWord')) && (Session.get('addWordForm')==null));
+    return (idWord == Session.get('mouseOverWord'));
   },
   reinitialiseInsertWord: function(){
     Session.set('insertWordForm', null);

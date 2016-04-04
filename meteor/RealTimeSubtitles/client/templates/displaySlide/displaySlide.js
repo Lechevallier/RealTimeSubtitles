@@ -23,10 +23,10 @@ Template.displaySlide.helpers({
 
 
 Template.displaySlide.events({
-  'mouseover .displaySlide': function(){
+  'mouseover .panel': function(){
     Session.set('mouseOverSlide', this._id);
   },
-  'click .displaySlide': function(){
+  'click .panel': function(){
     Session.set('selectedSlide', this._id);
   },
 });

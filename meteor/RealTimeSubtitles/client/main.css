@@ -20,7 +20,7 @@ form {
      margin:0px;
      padding:0px;
 }
-.displaySlide{
+.panel{
   width: 80%;
   margin: 0 auto; 
 }
@@ -66,7 +66,6 @@ a:hover {
 html,
 body {
   height: 100%;
-  background-color: #fff;
   font-family: arial, Georgia, Serif;
 }
 body {
@@ -141,12 +140,6 @@ body {
   }
 }
 
-.displayWord{
-  color : black;
-}
-.pushWordButton{
-  color : black;
-}
 
 
 button, input, optgroup, select, textarea {
