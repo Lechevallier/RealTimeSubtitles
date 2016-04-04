@@ -32,3 +32,4 @@ standard-minifier-js
 fililabs:reveal-js
 iron:router
 neo:reveal-js
+cfs:gridfs
