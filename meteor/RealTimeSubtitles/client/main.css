@@ -178,6 +178,31 @@ button, input, optgroup, select, textarea {
     cursor:pointer;
 }*/
 
+#about{
+	border:solid;
+	border-color:green;
+	padding:10px;
+	border-style:dashed outset;	
+	border-radius:25px;
+}
+
+
 #main{
+	display:block;
 	margin:100px;
+	width: 1000px;
+	height:700px;
+}
+
+.reveal .progress{
+	height:5px;
+	background-color:red;
+}
+
+.reveal aside.notes {
+	display:block;
+}
+
+.real .progress span {
+	background-color:red;
 }

@@ -17,6 +17,11 @@ Router.route('home',function(){
 		this.render('home');
 });
 
+/*
+Router.route('reveal',function(){
+		this.render('reveal');
+});*/
+
 
 Router.map(function () {
   this.route('reveal', {

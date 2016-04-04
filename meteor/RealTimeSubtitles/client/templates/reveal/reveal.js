@@ -1,6 +1,8 @@
 Template.reveal.onRendered( function() {
   Reveal.initialize({
-		controls:true
+		controls:true,
+		showNotes:true,
+		embedded:true,
   });
 	Reveal.slide();
 });
