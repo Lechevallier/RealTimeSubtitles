@@ -29,7 +29,8 @@ Router.map(function () {
   template: 'reveal',
   layoutTemplate: 'layout',
   yieldTemplates: {
-    'affichage': {to: 'diapo'},
+    'cours': {to: 'diapo'},
+	'commentaire':{to:'commentaire_section'},
     }
   });
 });
