@@ -25,8 +25,8 @@ Template.coursesTables.helpers({
       return moment(date).fromNow();
   },
   DisplayAuthor: function(id) {
-    if((Meteor.users.findOne(id) != undefined) && (Meteor.users.findOne(id).emails != undefined)){
-      return Meteor.users.findOne(id).emails[0].address;
+    if((Meteor.users.findOne(id) != undefined) && (Meteor.users.findOne(id).username != undefined)){
+      return Meteor.users.findOne(id).username;
     }else{
       return id;
     }
