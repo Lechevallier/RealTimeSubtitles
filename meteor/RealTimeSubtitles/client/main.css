@@ -173,10 +173,12 @@ button, input, optgroup, select, textarea {
 
 #about{
 	border:solid;
-	border-color:green;
+	border-color:grey;
 	padding:10px;
-	border-style:dashed outset;	
-	border-radius:25px;
+	border-style:groove;	
+	border-radius:2px;
+	border-width:12px;
+	width:auto;
 }
 
 

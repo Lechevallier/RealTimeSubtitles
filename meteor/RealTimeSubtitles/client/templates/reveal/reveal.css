@@ -1,0 +1,26 @@
+.reveal .progress{
+	height:5px;
+}
+
+.reveal aside.notes {
+	display:block;
+}
+
+.reveal .progress span {
+	background-color:black;
+}
+
+.reveal .controls div.navigate-left{
+	border-right-color:blue;
+}
+
+
+.reveal .controls div.navigate-right{
+	border-left-color:blue;
+}
+.reveal .controls div.navigate-up{
+	border-bottom-color:blue;
+}
+.reveal .controls div.navigate-down{
+	border-top-color:blue;
+}
