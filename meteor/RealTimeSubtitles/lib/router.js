@@ -25,11 +25,12 @@ Router.route('reveal',function(){
 
 Router.map(function () {
   this.route('reveal', {
-  path: '/reveal',
-  template: 'reveal',
-  layoutTemplate: 'layout',
-  yieldTemplates: {
-    'affichage': {to: 'diapo'},
+    path: '/reveal',
+    template: 'reveal',
+    layoutTemplate: 'layout',
+    yieldTemplates: {
+      'cours': {to: 'diapo'},
+      'commentaire':{to:'commentaire_section'},
     }
   });
 });
