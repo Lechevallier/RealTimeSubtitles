@@ -1,6 +1,6 @@
 Template.displaySlide.helpers({
   displaySlide: function(){
-    var slidesTab = SlidesCollection.find({course: Session.get('joinedCourse')}).fetch();
+    var slidesTab = SlidesCollection.find({course: Session.get('joinedCourse')}, {sort: {numH: 1, numV: 1}}).fetch();
     return slidesTab;
   },
   displaySlideCss: function(){

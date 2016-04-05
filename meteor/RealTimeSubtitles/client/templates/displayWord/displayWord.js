@@ -68,9 +68,12 @@ Template.displayWord.events({
   },
   'click .close': function(event){
     var idWord = $('.selectpicker').find(":selected")[0].id;
-    console.log(idWord);
-    Meteor.call('removeWordData', idWord, function(result, error){$('.selectpicker').selectpicker('refresh')});
+    Meteor.call('removeWordData', idWord);
   },
+  'change select': function(event){
+    var idWord = $('.selectpicker').find(":selected")[0].id;
+    Meteor.call('incWordScore', idWord);
+  }
 })
 
 Template.displayOption.helpers({

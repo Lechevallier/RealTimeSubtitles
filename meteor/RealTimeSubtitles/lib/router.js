@@ -5,12 +5,16 @@ Router.configure ({
 	//waitOn: function(){return Meteor.subscribe('/reveal');}
 });
 
-Router.route('/', function () {
+Router.route('/', function (){
   this.render('home');
 });
 
 Router.route('/about',function(){
 	this.render('about');
+});
+
+Router.route('/edit',function(){
+    this.render('displaySlide');
 });
 
 Router.route('home',function(){
@@ -29,11 +33,12 @@ Router.route('reveal',function(){
 
 Router.map(function () {
   this.route('reveal', {
-  path: '/reveal',
-  template: 'reveal',
-  layoutTemplate: 'layout',
-  yieldTemplates: {
-    'affichage': {to: 'diapo'},
+    path: '/reveal',
+    template: 'reveal',
+    layoutTemplate: 'layout',
+    yieldTemplates: {
+      'cours': {to: 'diapo'},
+      'commentaire':{to:'commentaire_section'},
     }
   });
 });

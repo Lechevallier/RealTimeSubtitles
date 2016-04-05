@@ -40,6 +40,9 @@ cfs:storage-adapter@0.2.3
 cfs:tempstore@0.1.5
 cfs:upload-http@0.0.20
 cfs:worker@0.1.4
+cfs:base-package@0.0.30
+cfs:gridfs@0.0.33
+cfs:storage-adapter@0.2.3
 check@1.1.2
 ddp@1.2.3
 ddp-client@1.2.3
