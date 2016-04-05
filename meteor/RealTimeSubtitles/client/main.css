@@ -67,6 +67,10 @@ a:hover {
   font-size : 22px;
 }
 
+#login-buttons {
+  position: relative;
+  top: 15px;
+}
 /* 
 * Carousel base class 
 */
