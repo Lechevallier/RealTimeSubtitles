@@ -275,8 +275,12 @@ button, input, optgroup, select, textarea {
 div.acote{
 	position:absolute;
 	right:10px;
-	top:70px;
+	top:100px;
 	width:400px;
 	height:530px;
-	border:solid;
+	border-left:solid;
+}
+
+div#formulaire{
+	margin:30px;
 }
