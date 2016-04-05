@@ -22,7 +22,7 @@
 
 
 .reveal.default.center{
-	width:800px;	
+	width:750px;	
 	height:600px;
 	
 }
@@ -74,5 +74,17 @@
 .reveal .controls{
 	position:fixed;
 	left:5px;
-	bottom:10px;
+	bottom:40px;
+}
+
+.reveal .slide-number{
+	position:fixed;
+	display:block;
+	left:2px;
+	bottom:7px;
+	width:100px;
+	padding:0;
+	margin:0;
+	color:black;
+	font-size:30px;
 }

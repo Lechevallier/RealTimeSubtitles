@@ -34,8 +34,6 @@ Template.reveal.onRendered( function() {
 			115:null,
 			83:null,
 			191:null,
-			49:'togglePause',
-			48:'fullscreen'
 		}
   });
 	Reveal.slide();
