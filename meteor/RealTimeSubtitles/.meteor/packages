@@ -25,10 +25,15 @@ random
 ogamedia:timer
 kookoskar:bootstrap-select
 gunjansoni:html5-api
-accounts-google
-accounts-github
 standard-minifier-css
 standard-minifier-js
 fililabs:reveal-js
 iron:router
 neo:reveal-js
+cfs:autoform
+aldeed:collection2
+aldeed:autoform
+cfs:standard-packages
+themeteorchef:jquery-validation
+cfs:gridfs
+aldeed:simple-schema
