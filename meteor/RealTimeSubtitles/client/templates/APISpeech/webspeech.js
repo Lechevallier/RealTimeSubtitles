@@ -254,7 +254,7 @@ Template.APISpeech.events({
   'click button': function() {
     // reco.lang = select_dialect.value;
     reco.toggleStartStop();
-    console.log('sg')
+    console.log('clickSpeech')
   },
 })
 

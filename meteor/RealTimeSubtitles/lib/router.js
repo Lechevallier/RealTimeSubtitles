@@ -48,8 +48,7 @@ Router.map(function () {
     layoutTemplate: 'layout',
     yieldTemplates: {
       'cours': {to: 'diapo'},
-	  'note_fixe':{to:'commentaire_fixe'},
-	  'note_editable':{to:'commentaire_editable'},	  
+  	  'displayNote':{to:'commentaire'},	  
     }
   });
 });

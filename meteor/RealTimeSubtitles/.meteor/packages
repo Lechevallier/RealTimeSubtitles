@@ -39,3 +39,4 @@ tomi:upload-server
 tomi:upload-jquery
 accounts-password
 accounts-ui
+mrt:bootstrap-switch

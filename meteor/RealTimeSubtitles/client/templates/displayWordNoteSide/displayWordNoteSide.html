@@ -1,0 +1,27 @@
+<template name="displayWordNoteSide">
+
+		{{#if addWordForm var}}
+			{{> addWordOpt}}
+		{{else}}
+
+			{{>insertWord var=var}}
+
+			{{#if selectOrSpan var}}
+				<span>
+		 			<select class="selectpicker" data-width="fit" data-size="10">
+		 				{{#each wordOpt in var}}
+		 					{{> displayOption wordOpt=wordOpt}}
+		 				{{/each}}
+		 				<option>
+							<form class="addWordOptSelect">
+								<input type="text" name="addOptSelect" size="8" placeholder="add option">
+							</form>
+						</option>
+					</select>
+				</span>
+			{{else}}
+				<span class='{{displayWordCss}}'>{{displayWord var}}</span>
+			{{/if}}
+		{{/if}}
+
+</template>

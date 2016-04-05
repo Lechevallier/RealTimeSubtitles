@@ -31,6 +31,8 @@ function addSlide(H, V){
 	Session.set('currentIndexV',V);
 	var slide = SlidesCollection.findOne({numH:Session.get('currentIndexH'), numV:Session.get('currentIndexV')});
 	if(slide == undefined){
+		console.log(Session.get('currentIndexH'))
+		console.log(Session.get('currentIndexV'))
 		Meteor.call('insertSlideData', Session.get('joinedCourse'), Session.get('currentIndexH'), Session.get('currentIndexV'), function(){
 			slide = SlidesCollection.findOne({numH:Session.get('currentIndexH'), numV:Session.get('currentIndexV')});
 			Session.set('currentSlide', slide._id);
