@@ -26,17 +26,6 @@ form {
 }
 
 
-/*.btn-circle {
-  width: 30px;
-  height: 30px;
-  text-align: center;
-  padding: 6px 0;
-  font-size: 12px;
-  line-height: 1.42;
-  border-radius: 15px;
-}
-
-
 /*
  * Globals
  */
@@ -141,35 +130,9 @@ body {
 }
 
 
-
 button, input, optgroup, select, textarea {
   color : black;
 }
-/*.content {
-  text-align:center; 
-  padding:50px 0;
-}*/
-
-/* The CSS */
-/*select {
-    padding:3px;
-    margin: 0;
-    -webkit-border-radius:4px;
-    -moz-border-radius:4px;
-    border-radius:4px;
-    -webkit-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
-    -moz-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
-    box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
-    background: #f8f8f8;
-    color:#888;
-    border:none;
-    outline:none;
-    display: inline-block;
-    -webkit-appearance:none;
-    -moz-appearance:none;
-    appearance:none;
-    cursor:pointer;
-}*/
 
 #about{
 	border:solid;
@@ -178,15 +141,14 @@ button, input, optgroup, select, textarea {
 	border-style:groove;	
 	border-radius:2px;
 	border-width:12px;
-	width:auto;
+	width:700px;
+	margin-left:auto;
+	margin-right:auto;
 }
-
 
 #main{
 	display:block;
 	margin:100px;
-	width: 1000px;
-	height:700px;
 }
 
 .reveal .progress{
@@ -200,4 +162,14 @@ button, input, optgroup, select, textarea {
 
 .real .progress span {
 	background-color:red;
+}
+
+/* liste de cours*/
+.course{
+	margin-top:5px;
+	margin:4px;
+}
+
+#champ1{
+	margin:30px;
 }
