@@ -1,13 +1,11 @@
 <template name="reveal">
 	<div class="reveal">
 		<div class="slides">
-			{{>yield region='diapo'}}
+				{{>yield region='diapo'}}
 		</div>
 	</div>
 	<div class="acote">
-		{{>yield region='commentaire_section'}}
-	</div>
-	<div class="droite">
-		{{>yield region='com_droite'}}
+		{{>yield region='commentaire_editable'}}
+		{{>yield region='commentaire_fixe'}}
 	</div>
 </template>	
