@@ -42,6 +42,9 @@ Template.displayNote.helpers({
   isEditable: function(){
     return Session.get('isEditable') == true;
   },
+  isTeacher: function(){
+    return CoursesCollection.findOne(Session.get('joinedCourse')).author == Meteor.userId();
+  },
 })
 
 

@@ -47,6 +47,10 @@ Template.coursesTables.events({
   'click #join': function(){
     Session.set('joinedCourse', this._id);
     Meteor.call('incCourseListener', Session.get('joinedCourse'));
+    if(reco != undefined){
+      console.log("stop")
+      reco.stop();
+    }
   }
 });
 
