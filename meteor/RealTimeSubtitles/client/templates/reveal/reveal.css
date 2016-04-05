@@ -34,9 +34,10 @@
 	min-height:100%;
 }
 
-.acote{
+div.acote{
 	position:absolute;
-	right:0;
+	top:100px;
+	right:200px;
 }
 
 /*********************************************
