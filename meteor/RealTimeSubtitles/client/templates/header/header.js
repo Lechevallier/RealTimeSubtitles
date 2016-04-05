@@ -9,6 +9,4 @@ Template.header.helpers({
 	'isJoined' : function(){
 		return CoursesCollection.find(Session.get('joinedCourse')).fetch().toString() != [];
 	}
-
 });
-
