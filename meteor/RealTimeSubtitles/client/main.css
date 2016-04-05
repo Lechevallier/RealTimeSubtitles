@@ -80,9 +80,10 @@ a:hover {
 }
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
+	position:absolute;
   z-index: 10;
-  margin-bottom: auto;
-  margin-top: auto;
+  margin-top: 30px;
+  top:0;
 }
 
 /* Declare heights because of positioning of img element */
