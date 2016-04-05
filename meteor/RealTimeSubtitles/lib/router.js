@@ -30,6 +30,11 @@ Router.route('/login',function(){
 });
 
 
+Router.route('/indev',function(){
+  this.render('indev');
+});
+
+
 /*
 Router.route('reveal',function(){
 		this.render('reveal');
