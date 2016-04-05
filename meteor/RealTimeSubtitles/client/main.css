@@ -31,9 +31,9 @@ form {
 .mouseOnWord{
   font-weight: bold;
 }
-.selectedWord{
+/*.selectedWord{
   font-weight: 900;
-}
+}*/
 .panel{
   width: 80%;
   margin: 0 auto; 
