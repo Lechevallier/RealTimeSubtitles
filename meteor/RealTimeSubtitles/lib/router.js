@@ -5,12 +5,16 @@ Router.configure ({
 	//waitOn: function(){return Meteor.subscribe('/reveal');}
 });
 
-Router.route('/', function () {
+Router.route('/', function (){
   this.render('home');
 });
 
 Router.route('/about',function(){
 	this.render('about');
+});
+
+Router.route('/edit',function(){
+    this.render('displaySlide');
 });
 
 Router.route('home',function(){

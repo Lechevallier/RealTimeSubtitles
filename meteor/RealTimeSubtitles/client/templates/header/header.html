@@ -9,13 +9,16 @@
 				  <span class="icon-bar"></span>
 				</button>
 				<a class="navbar-brand" href="{{pathFor 'home'}}">Live Subtitles</a>
-			  </div>
-			  <div class="navbar-collapse collapse">
+				</div>
+				<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
-					<li><a href="{{pathFor 'home'}}">Cours</a></li>
-				  <li><a href="{{pathFor 'about'}}">About</a></li>
-				  <li><a href="{{pathFor 'reveal'}}">Reveal</a></li>
-				  <li><a href="#signin">{{> loginButtons}}</a></li>
+					{{#if currentUser}}
+						<li>{{> APISpeech}}</li>
+						<li><a href="{{pathFor 'edit'}}">Edit</a></li>
+						<li><a href="{{pathFor 'reveal'}}">Reveal</a></li>
+					{{/if}}
+					<li><a href="{{pathFor 'about'}}">About</a></li>
+					<li><a href="#signin">{{> loginButtons}}</a></li>
 				</ul>
 			  </div><!--/.nav-collapse -->
 			</div>
