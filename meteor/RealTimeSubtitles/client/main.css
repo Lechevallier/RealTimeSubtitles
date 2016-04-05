@@ -141,10 +141,13 @@ button, input, optgroup, select, textarea {
 	border-style:groove;	
 	border-radius:2px;
 	border-width:12px;
-	width:300px;
-	margin-top : 200px;
+	width:1000px;
+	margin-top : 20px;
 	margin-left:auto;
 	margin-right:auto;
+	margin-bottom:20px;
+	overflow:auto;
+
 }
 
 .panel-body{
@@ -281,6 +284,73 @@ div.acote{
 	border-left:solid;
 }
 
+
 div#formulaire{
 	margin:30px;
 }
+
+
+/*trolling*/
+#test{
+	display:inline-block;
+	left:10px;
+}
+
+.espacement a:active {
+	
+}
+  
+.espacement:not(.ie) img {
+    height:300px;
+    width:290px;
+}
+
+.espacement  {
+	display:inline-block;
+    position:float;
+    z-index:2;
+    float:right;
+    cursor:pointer;
+	 text-align:center;
+    opacity:1;
+    margin-right:70px;
+	margin-left:40px;
+    margin-bottom:10px;
+    height:144px;
+    width:144px;
+	opacity:0.4;
+    -moz-transform:scale(0.8);
+    -webkit-transform:scale(0.8);
+    transform:scale(0.8);
+    -webkit-transition: all 250ms ease-in-out;
+  }
+
+
+.espacement:hover{
+    opacity:1;
+    position:relative;
+    z-index:1;
+    -webkit-transform: translate(-20px, 0);
+ }
+  
+.espacement img {
+      border:none;
+      -webkit-box-shadow:0 0 0 rgba(255,255,255,0.5);
+      -webkit-transition: all 100ms ease-in-out;
+}
+    
+.espacement:hover  img {
+
+      -webkit-box-shadow:0 0 30px rgba(255,255,255,0.5);
+}
+
+.barrel_roll {
+    -webkit-transition: -webkit-transform 4s ease;
+    -webkit-transform: rotate(360deg);
+    -moz-transition: -moz-transform 4s ease;
+    -moz-transform: rotate(360deg);
+    -o-transition: -o-transform 4s ease;
+    -o-transform: rotate(360deg);
+    transition: transform 4s ease;
+    transform: rotate(360deg);
+}  
