@@ -4,3 +4,8 @@ Template.header.helpers({
 	}
 
 })
+
+Accounts.ui.config({
+  passwordSignupFields: "USERNAME_ONLY"
+});
+

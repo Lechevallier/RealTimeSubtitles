@@ -1,6 +1,6 @@
 <template name="coursesTables">
 	{{#each course}}
-		<li class='course'> 
+		<li class='course'>
 			<b>{{name}}</b> created by {{DisplayAuthor author}} at {{DisplayDate createdAt}}, <small><i>{{listener}} collaborators</i></small> {{slides}}
 			
 			{{#if mouseOnDelete}} 
@@ -16,10 +16,12 @@
 </template>
 
 <template name="addCourseForm">
-	{{#if currentUser}}
-		<form>
-			<input type="text" name="courseName" placeholder="Type to add new course">
-			<input type="submit" value="Add Course">
-		</form>
-	{{/if}}
+	<div id="champ1">
+		{{#if currentUser}}
+			<form>
+				<input type="text" name="courseName" placeholder="Type to add new course">
+				<input type="submit" value="Add Course">
+			</form>
+		{{/if}}
+	</div>
 </template>
