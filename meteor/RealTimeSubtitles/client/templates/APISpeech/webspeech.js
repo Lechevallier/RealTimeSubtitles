@@ -240,26 +240,11 @@ var image_array_mic = {
 reco = new WebSpeechRecognition();
 reco.statusText('status');
 reco.statusImage('status_img');
-reco.finalResults('input_field'); 
-reco.maxAlternatives = 10;
+reco.finalResults('final_span');
+reco.interimResults('interim_span');
 reco.continuous = true;
 
-reco.onEnd = function() {
-  if (reco.final_transcript != '') {
-    console.log(reco.final_transcript);
-  }
-};
-
-Template.APISpeech.events({
-  'click button': function() {
-    // reco.lang = select_dialect.value;
-    reco.toggleStartStop();
-    console.log('clickSpeech')
-  },
-})
-
-
-reco.recognition.onresult = function(event) {
+reco.onresult = function(event) {
   var interim_transcript = '';
   // Process all new results, both final and interim.
   for (var i = event.resultIndex; i < event.results.length; ++i) {
@@ -279,13 +264,16 @@ reco.recognition.onresult = function(event) {
   document.getElementById('interim_span').innerHTML = interim_transcript;
 };
 
-function appendSelectOptions(destination_id, speech_recognition_result) {
-  var select = document.createElement('SELECT')  
-  for (var i = 0; i < speech_recognition_result.length; ++i) {
-    var option = document.createElement('OPTION')  
-    option.text = speech_recognition_result[i].transcript;
-    option.value = i;
-    select.options.add(option)  
-  } 
-  document.getElementById(destination_id).appendChild(select);
-}
+
+reco.onEnd = function() {
+  if (reco.final_transcript != '') {
+    console.log(reco.final_transcript);
+  }
+};
+
+Template.APISpeech.events({
+  'click button': function() {
+    reco.toggleStartStop();
+    console.log('clickSpeech')
+  },
+})
