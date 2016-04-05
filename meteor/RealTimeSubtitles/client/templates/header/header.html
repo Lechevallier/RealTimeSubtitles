@@ -13,8 +13,10 @@
 				<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
 					{{#if currentUser}}
-						<li>{{> APISpeech}}</li>
-						<li><a href="{{pathFor 'edit'}}">Edit</a></li>
+						{{#if isTeacher}}
+							<li>{{> APISpeech}}</li>
+						{{/if}}
+						<li><a href="{{pathFor 'edit'}}">Notes</a></li>
 						<li><a href="{{pathFor 'reveal'}}">Reveal</a></li>
 					{{/if}}
 					<li><a href="{{pathFor 'about'}}">About</a></li>

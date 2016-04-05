@@ -1,10 +1,9 @@
 <template name="displayNote">
 	{{#if thereIsSlide}}
-		{{displaySlide}}
-			{{#if thereIsWord}}
-				{{#each wordOptArray in displayNote}}
-				 	{{displayBestWord wordOptArray}}
-				{{/each}}
-			{{/if}}
+		{{#if thereIsWord}}
+			{{#each wordOptArray in displayNote}}
+			 	{{displayBestWord wordOptArray}}
+			{{/each}}
+		{{/if}}
 	{{/if}}
 </template>
