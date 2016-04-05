@@ -1,0 +1,8 @@
+<template name="uploadfiles">
+    {{> upload_bootstrap fileTypes='.html' multiple=true formData=specificFormData}}
+</template>
+
+<template name="indev">
+	<h1>Welcome to Live Subtitles !</h1>
+	{{> uploadfiles}}
+ </template>
