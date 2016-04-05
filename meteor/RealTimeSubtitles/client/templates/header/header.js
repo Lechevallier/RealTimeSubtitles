@@ -1,3 +1,7 @@
+Accounts.ui.config({
+  passwordSignupFields: "USERNAME_ONLY"
+});
+
 Template.header.helpers({
 	'isTeacher' : function(){
 		return CoursesCollection.findOne(Session.get('joinedCourse')).author == Meteor.userId();
@@ -6,9 +10,5 @@ Template.header.helpers({
 		return CoursesCollection.find(Session.get('joinedCourse')).fetch().toString() != [];
 	}
 
-})
-
-Accounts.ui.config({
-  passwordSignupFields: "USERNAME_ONLY"
 });
 
