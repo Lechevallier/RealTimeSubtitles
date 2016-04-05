@@ -31,11 +31,19 @@ Template.displayNote.helpers({
     return SlidesCollection.find({course: Session.get('joinedCourse')}).fetch().toString() != [];
   },
   thereIsWord: function(){
-    var notes = SlidesCollection.findOne({course: Session.get('joinedCourse'), numH:Session.get('currentIndexH'), numV:Session.get('currentIndexV')}).notes;
-    return notes.toString() != [];
+    var slide = SlidesCollection.findOne({course: Session.get('joinedCourse'), numH:Session.get('currentIndexH'), numV:Session.get('currentIndexV')});
+    if(slide != undefined){
+      return slide.notes.toString() != [];
+    }
+    else{
+      return false;
+    }
   },
   isEditable: function(){
     return Session.get('isEditable') == true;
+  },
+  isTeacher: function(){
+    return CoursesCollection.findOne(Session.get('joinedCourse')).author == Meteor.userId();
   },
 })
 

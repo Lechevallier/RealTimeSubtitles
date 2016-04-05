@@ -193,6 +193,12 @@ function WebSpeechRecognition() {
       r.interim_transcript = '';
       for (var i = event.resultIndex; i < event.results.length; ++i) {
         if (event.results[i].isFinal) {
+          var result = event.results[i][0].transcript
+          var resultSplit = result.split(" ");
+          var slide = SlidesCollection.findOne({course:Session.get('joinedCourse'), numH:Session.get('currentIndexH'), numV:Session.get('currentIndexV')});
+          for(word of resultSplit){
+             Meteor.call('pushWordData', slide._id, word )
+          }
           r.final_transcript += event.results[i][0].transcript;
         } else {
           r.interim_transcript += event.results[i][0].transcript;
@@ -237,55 +243,9 @@ var image_array_mic = {
 };
 
 
-reco = new WebSpeechRecognition();
-reco.statusText('status');
-reco.statusImage('status_img');
-reco.finalResults('input_field'); 
-reco.maxAlternatives = 10;
-reco.continuous = true;
-
-reco.onEnd = function() {
-  if (reco.final_transcript != '') {
-    console.log(reco.final_transcript);
-  }
-};
 
 Template.APISpeech.events({
   'click button': function() {
-    // reco.lang = select_dialect.value;
     reco.toggleStartStop();
-    console.log('clickSpeech')
   },
 })
-
-
-reco.recognition.onresult = function(event) {
-  var interim_transcript = '';
-  // Process all new results, both final and interim.
-  for (var i = event.resultIndex; i < event.results.length; ++i) {
-    if (event.results[i].isFinal) {
-      var result = event.results[i][0].transcript
-      var resultSplit = result.split(" ");
-      var slide = SlidesCollection.findOne({numH:Session.get('currentIndexH'), numV:Session.get('currentIndexV')});
-      for(word of resultSplit){
-         Meteor.call('pushWordData', slide._id, word )
-      }
-    } else {
-      interim_transcript += event.results[i][0].transcript;
-      console.log(interim_transcript);
-    }
-  }
-  console.log(interim_transcript);
-  document.getElementById('interim_span').innerHTML = interim_transcript;
-};
-
-function appendSelectOptions(destination_id, speech_recognition_result) {
-  var select = document.createElement('SELECT')  
-  for (var i = 0; i < speech_recognition_result.length; ++i) {
-    var option = document.createElement('OPTION')  
-    option.text = speech_recognition_result[i].transcript;
-    option.value = i;
-    select.options.add(option)  
-  } 
-  document.getElementById(destination_id).appendChild(select);
-}

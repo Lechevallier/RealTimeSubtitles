@@ -29,10 +29,10 @@ form {
   position : absolute;
 }
 .mouseOnWord{
-	background-color: #FFFF99 ;
+  font-weight: bold;
 }
 .selectedWord{
-	background-color: #FFFF66 ;
+  font-weight: 900;
 }
 .panel{
   width: 80%;

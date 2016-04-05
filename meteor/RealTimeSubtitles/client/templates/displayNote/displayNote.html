@@ -1,4 +1,7 @@
 <template name="displayNote">
+	{{#if isTeacher}}
+		<div id="status" style="color:gray"></div>
+	{{/if}}
 	<div class="switch" id="toggle">
 	   <input type="checkbox" data-label-text="Edit" data-switch-get="state">
 	</div>

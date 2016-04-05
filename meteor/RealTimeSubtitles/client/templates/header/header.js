@@ -3,10 +3,13 @@ Accounts.ui.config({
 });
 
 Template.header.helpers({
-	'isTeacher' : function(){
-		return CoursesCollection.findOne(Session.get('joinedCourse')).author == Meteor.userId();
+	isTeacher : function(){
+		return ((CoursesCollection.findOne(Session.get('joinedCourse')).author == Meteor.userId()) && (Session.get('currentSlide') != undefined));
 	},
-	'isJoined' : function(){
+	isJoined : function(){
 		return CoursesCollection.find(Session.get('joinedCourse')).fetch().toString() != [];
+	},
+	courseName : function(){
+		return CoursesCollection.findOne(Session.get('joinedCourse')).name;
 	}
 });
