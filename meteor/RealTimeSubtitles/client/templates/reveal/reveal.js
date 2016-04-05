@@ -10,9 +10,33 @@ Template.reveal.onRendered( function() {
   	    minScale: 0.2,
   	    maxScale: 1.5,
 		controls:true,
-		showNotes:true,
+		keyboard: true,
+		showNotes:false,
+		help: true,
 		embedded:true,
 		slideNumber: true,
+		keyboard:{
+			78:null,
+			32:null,
+			80:null,
+			72:null,
+			74:null,
+			75:null,
+			76:null,
+			66:null,
+			46:null,
+			47:null,
+			70:null,
+			79:null,
+			58:null,
+			59:null,
+			190:null,
+			115:null,
+			83:null,
+			191:null,
+			49:'togglePause',
+			48:'fullscreen'
+		}
   });
 	Reveal.slide();
 	Reveal.addEventListener( 'ready', function( event ) {
