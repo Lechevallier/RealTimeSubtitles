@@ -1,24 +1,4 @@
-/*
- * Base structure
- */
-
-html,
-body {
-  height: 100%;
-  font-family: arial, Georgia, Serif;
-  text-align: center;
-  background: #efefef;
-}
-
-form {
-     display:inline;
-     margin:0px;
-     padding:0px;
-}
-
-/* 
-* Events
-*/
+/* CSS declarations go here */
 .mouseOn{
 	background-color: #D8D8D8 ;
 }
@@ -34,10 +14,21 @@ form {
 .selectedWord{
 	background-color: #FFFF66 ;
 }
+
+form {
+     display:inline;
+     margin:0px;
+     padding:0px;
+}
 .panel{
   width: 80%;
   margin: 0 auto; 
 }
+
+
+/*
+ * Globals
+ */
 
 /* Links */
 a,
@@ -56,47 +47,36 @@ a:hover {
   border: 1px solid #fff;
 }
 
-/* 
-* Navbar 
-*/
+
+/*
+ * Base structure
+ */
+
+html,
+body {
+  height: 100%;
+  font-family: arial, Georgia, Serif;
+}
+body {
+  text-align: center;
+/*  color:  #000000;
+  text-shadow: 0 1px 3px rgba(0,0,0,.5);*/
+}
+
 .navbar{
   font-weight: bold;
-  width: auto;
 }
 .navbar-inverse .navbar-brand{
   font-size : 22px;
 }
-
-#login-buttons {
-  position: relative;
-  top: 15px;
-}
-/* 
-* Carousel base class 
-*/
-.carousel {
-  height: 500px;
-  margin-bottom: 60px;
-}
-/* Since positioning the image, we need to help out the caption */
-.carousel-caption {
-  z-index: 10;
-  margin-bottom: auto;
-  margin-top: auto;
+.cover-container {
+  margin-right: auto;
+  margin-left: auto;
 }
 
-/* Declare heights because of positioning of img element */
-.carousel .item {
-  height: 500px;
-  background-color: #777;
-
-}
-.carousel-inner > .item > img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  min-width: 100%;
-  height: 500px;
+/* Padding for spacing */
+.inner {
+  padding: 30px;
 }
 
 /*
@@ -110,15 +90,7 @@ a:hover {
   padding: 10px 20px;
   font-weight: bold;
 }
-.cover-container {
-  margin-right: auto;
-  margin-left: auto;
-}
 
-/* Padding for spacing */
-.inner {
-  padding: 30px;
-}
 /*
  * Footer
  */
@@ -141,7 +113,7 @@ button, input, optgroup, select, textarea {
 	border-radius:2px;
 	border-width:12px;
 	width:300px;
-  margin-top : 200px;
+	margin-top : 200px;
 	margin-left:auto;
 	margin-right:auto;
 }
@@ -155,9 +127,6 @@ button, input, optgroup, select, textarea {
 	margin:100px;
 }
 
-/*
-* Reveal 
-*/
 .reveal .progress{
 	height:5px;
 	background-color:red;
@@ -171,9 +140,6 @@ button, input, optgroup, select, textarea {
 	background-color:red;
 }
 
-/*
-* Login
-*/
 #login-dropdown-list {
     position: absolute;
     top: 200px;
@@ -185,9 +151,7 @@ button, input, optgroup, select, textarea {
     padding: 10px 20px;
 }
 
-/* 
-* liste de cours
-*/
+/* liste de cours*/
 .course{
 	margin-top:5px;
 	margin:4px;
@@ -195,35 +159,6 @@ button, input, optgroup, select, textarea {
 
 #champ1{
 	margin:30px;
-}
-
-/* 
-* Upload file
-*/
-.jqDropZone {
-    background: lightgrey;
-    width: 150px;
-    height: 50px;
-    line-height: 50px;
-    text-align: center;
-    font-weight: bold;
-}
-.jqDropZone.in {
-    width: 600px;
-    height: 200px;
-    line-height: 200px;
-    font-size: larger;
-}
-.jqDropZone.hover {
-    background: lawngreen;
-}
-.jqDropZone.fade {
-    -webkit-transition: all 0.3s ease-out;
-    -moz-transition: all 0.3s ease-out;
-    -ms-transition: all 0.3s ease-out;
-    -o-transition: all 0.3s ease-out;
-    transition: all 0.3s ease-out;
-    opacity: 1;
 }
 
 /*
@@ -246,6 +181,24 @@ button, input, optgroup, select, textarea {
     width:100%; /* Must be percentage or pixels for horizontal alignment */
   }
 
+  /* Navbar positioning foo */
+  .navbar-wrapper {
+    margin-top: 20px;
+  }
+  .navbar-wrapper .container {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  .navbar-wrapper .navbar {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  /* The navbar becomes detached from the top, so we round the corners */
+  .navbar-wrapper .navbar {
+    border-radius: 4px;
+  }
+
   /* Bump up size of carousel content */
   .carousel-caption p {
     margin-bottom: 20px;
@@ -262,6 +215,7 @@ button, input, optgroup, select, textarea {
   .panel-body{
   text-align:center;
   }
+
 }
 
 @media (min-width: 992px) {
@@ -269,4 +223,13 @@ button, input, optgroup, select, textarea {
   .cover-container {
     width: 700px;
   }
+}
+
+div.acote{
+	position:absolute;
+	right:10px;
+	top:90px;
+	width:400px;
+	height:530px;
+	border:solid;
 }

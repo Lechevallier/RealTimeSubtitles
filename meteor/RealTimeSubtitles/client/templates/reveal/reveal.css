@@ -22,7 +22,7 @@
 
 
 .reveal.default.center{
-	width:800px;
+	width:800px;	
 	height:600px;
 	
 }
@@ -32,12 +32,6 @@
 	min-height:100%;
 	max-width:100%;
 	min-height:100%;
-}
-
-div.acote{
-	position:absolute;
-	top:100px;
-	right:200px;
 }
 
 /*********************************************
@@ -76,3 +70,9 @@ div.acote{
   .reveal .speaker-notes {
     width: 90%;
     left: 5%; } }
+
+.reveal .controls{
+	position:fixed;
+	left:5px;
+	bottom:10px;
+}

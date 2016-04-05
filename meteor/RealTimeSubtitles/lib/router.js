@@ -29,6 +29,7 @@ Router.route('/login',function(){
   this.render('login');
 });
 
+
 Router.route('/indev',function(){
   this.render('indev');
 });
@@ -47,7 +48,8 @@ Router.map(function () {
     layoutTemplate: 'layout',
     yieldTemplates: {
       'cours': {to: 'diapo'},
-      'commentaire':{to:'commentaire_section'},
+	  'note_fixe':{to:'commentaire_fixe'},
+	  'note_editable':{to:'commentaire_editable'},	  
     }
   });
 });
