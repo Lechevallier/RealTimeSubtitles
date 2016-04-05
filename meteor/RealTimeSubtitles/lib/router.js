@@ -6,7 +6,11 @@ Router.configure ({
 });
 
 Router.route('/', function (){
-  this.render('home');
+  this.render('accueil');
+});
+
+Router.route('accueil',function(){
+    this.render('accueil');
 });
 
 Router.route('/about',function(){
