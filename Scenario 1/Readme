@@ -1,8 +1,0 @@
-Scenario 1:
-
-Le texte dicté par le professeur est écrit en bas des diapos.
-Les eleves ont 2 possibilités :
-    - proposer une correction
-    - indiquer que le mot est faux
-
-Le texte n'est changé en direct que lorsque plus de 50% des connectés proposent une correction équivalente (casse et accent non compris)
