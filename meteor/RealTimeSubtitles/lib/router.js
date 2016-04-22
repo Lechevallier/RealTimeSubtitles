@@ -21,8 +21,8 @@ Router.route('/edit',function(){
     this.render('displaySlide');
 });
 
-Router.route('home',function(){
-		this.render('home');
+Router.route('myCourse',function(){
+		this.render('myCourse');
 });
 
 Router.route('/login',function(){
@@ -32,6 +32,10 @@ Router.route('/login',function(){
 
 Router.route('/indev',function(){
   this.render('indev');
+});
+
+Router.route('/home',function(){
+  this.render('home');
 });
 
 
