@@ -21,7 +21,7 @@ Router.route('/edit',function(){
     this.render('displaySlide');
 });
 
-Router.route('myCourse',function(){
+Router.route('/myCourse',function(){
 		this.render('myCourse');
 });
 
@@ -30,29 +30,36 @@ Router.route('/login',function(){
 });
 
 
-Router.route('/indev',function(){
-  this.render('indev');
-});
-
 Router.route('/home',function(){
   this.render('home');
 });
 
 
-/*
-Router.route('reveal',function(){
-		this.render('reveal');
-});*/
 
-
-Router.map(function () {
-  this.route('reveal', {
-    path: '/reveal',
-    template: 'reveal',
-    layoutTemplate: 'layout',
-    yieldTemplates: {
-      'cours': {to: 'diapo'},
-  	  'displayNote':{to:'commentaire'},	  
+Router.route('/reveal/:_id', {
+  name: 'reveal',
+  template: 'reveal',
+  yieldTemplates: {
+    'cours': {to: 'diapo'},
+    'displayNote':{to:'commentaire'},   
+  },
+  data: function(){
+    return {
+      id: this.params._id
     }
-  });
+  }
+		// this.render('reveal');
 });
+
+
+// Router.map(function () {
+//   this.route('reveal', {
+//     path: '/reveal',
+//     template: 'reveal',
+//     layoutTemplate: 'layout',
+//     yieldTemplates: {
+//       'cours': {to: 'diapo'},
+//   	  'displayNote':{to:'commentaire'},	  
+//     }
+//   });
+// });

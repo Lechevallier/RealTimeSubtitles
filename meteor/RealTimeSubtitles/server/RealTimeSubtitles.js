@@ -20,11 +20,12 @@ Meteor.startup(function () {
 
 
 Meteor.methods({
-  'insertCourseData': function(courseNameVar){
-    if(courseNameVar!=""){
+  'insertCourseData': function(courseNameVar, fileId){
+    if(courseNameVar != ""){
       var currentUserId = Meteor.userId();
-      var idCourse = CoursesCollection.insert({
+      CoursesCollection.insert({
         name: courseNameVar,
+        file: fileId,
         listener: 0,
         author: currentUserId,
         createdAt: new Date()
@@ -123,7 +124,8 @@ Meteor.methods({
       for(slide of tab){
         WordsCollection.remove({slide:slide._id});
       }
-      SlidesCollection.remove({course: idCourse});
+      SlidesCollection.remove({course: idCourse});console.log(CoursesCollection.findOne(idCourse));
+      Docs.remove(CoursesCollection.findOne(idCourse).file);
       CoursesCollection.remove({_id: idCourse, author: currentUserId});
     }else{
       console.log("Wrong idCourse "+idCourse);

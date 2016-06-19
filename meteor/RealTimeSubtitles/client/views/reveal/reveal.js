@@ -51,6 +51,15 @@ Template.reveal.onRendered( function() {
 	});
 });
 
+Template.reveal.helpers({
+  displayFile: function (id) {
+    currrentCourse = CoursesCollection.find(id).fetch()[0];
+    currrentFile = Docs.find(currrentCourse.file).fetch()[0];
+    $.ajax({url: currrentFile.url(), success: function(result){
+          $("div.slides").html(result);
+      }});
+  }
+});
 
 
 
