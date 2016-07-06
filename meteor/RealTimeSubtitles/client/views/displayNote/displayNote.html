@@ -1,0 +1,30 @@
+<template name="displayNote">
+	{{#if isTeacher}}
+		<div id="status" style="color:gray"></div>
+	{{/if}}
+	<div class="switch" id="toggle">
+	   <input type="checkbox" data-label-text="Edit" data-switch-get="state">
+	</div>
+	<div>
+	{{#if thereIsSlide}}
+		{{#if thereIsWord}}
+			{{#each wordOptArray in displayNote}}
+				{{#if isEditable}}
+					{{> displayWordNoteSide var=wordOptArray}}
+				{{else}}
+					{{displayBestWord wordOptArray}}
+				{{/if}}
+			{{/each}}
+			{{#if isEditable}}
+				{{>pushWordNoteSide}}
+			{{/if}}
+		{{/if}}
+	{{/if}}
+	</div>
+</template>
+
+<template name="pushWordNoteSide">
+	<form>
+		<input type="text" name="pushWordNoteSide" size="4" placeholder="push">
+	</form>
+</template>
