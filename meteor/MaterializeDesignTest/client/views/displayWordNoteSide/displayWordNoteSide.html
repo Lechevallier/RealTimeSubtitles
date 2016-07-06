@@ -1,0 +1,39 @@
+<template name="displayWordNoteSide">
+
+		{{#if addWordForm var}}
+			{{> addWordOpt}}
+		{{else}}
+
+			{{>insertWord var=var}}
+
+			{{#if selectOrSpan var}}
+				<span>
+					    <select>
+						   		{{#each wordOpt in var}}
+				 					<option value="{{id wordOpt}}">{{displayWord wordOpt}}
+				 						<span class="badge">{{displayScore wordOpt}}
+					 						<i class="tiny material-icons">close</i>
+					 					</span>
+					 				</option>
+				 				{{/each}}
+					    		<option value="" disabled selected>
+									       <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+								</option>
+					    </select>
+		 			<select>
+		 				{{#each wordOpt in var}}
+		 					{{> displayOption wordOpt=wordOpt}}
+		 				{{/each}}
+		 				<option>
+							<form class="textInput">
+								<input type="text" name="addOptSelect" placeholder="add option">
+							</form>
+						</option>
+					</select>
+				</span>
+			{{else}}
+				<span class='{{displayWordCss}} flow-text'>{{displayWord var}}</span>
+			{{/if}}
+		{{/if}}
+
+</template>

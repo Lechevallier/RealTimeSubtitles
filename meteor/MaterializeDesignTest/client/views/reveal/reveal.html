@@ -1,0 +1,35 @@
+<template name="reveal">
+	<div class="row">
+		<div class="col s8">
+			<div class="reveal">
+				<div class="slides">
+					<!-- {{displayFile id}} -->
+					{{>yield region='diapo'}}
+					<!-- <section>
+							<h3>HTML Presentations Made Easy Flex</h3>
+							<p>
+								<small>Created by <a href="http://hakim.se">Hakim El Hattab</a> / <a href="http://twitter.com/hakimel">@hakimel</a></small>
+							</p>
+						</section>
+
+						<section>
+							<h2>Heads Up</h2>
+							<p>
+								reveal.js is a framework for easily creating beautiful presentations using HTML. You'll need a browser with
+								support for CSS 3D transforms to see it in its full glory.
+							</p>
+
+						</section> -->
+				</div>
+			</div>
+		</div>
+		<div class=" col s4">
+			<div class=" card-panel hoverable">
+				<div class="acote">
+					{{>yield region='commentaire'}}
+					<span id="interim_span" style="color:gray"></span>
+				</div>
+		</div>
+		</div>
+	</div>
+</template>	

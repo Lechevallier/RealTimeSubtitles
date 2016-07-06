@@ -1,0 +1,21 @@
+<template name="header">
+	<nav>
+	    <div class="nav-wrapper">
+	    	<a class="brand-logo" href="{{pathFor 'accueil'}}">Live Subtitles</a>
+	     	<ul id="nav-mobile" class="right hide-on-med-and-down">
+	      		<li><a class="grey-text text-lighten-3" href="{{pathFor 'contribute'}}">Contribute</a></li>
+				{{#if currentUser}}
+					<li><a class="grey-text text-lighten-3" href="{{pathFor 'myCourse'}}">My Course</a></li>
+					{{#if isJoined}}
+						{{#if isTeacher}}
+							<li>{{> APISpeech}}</li>
+						{{/if}}
+						<li><a class="grey-text text-lighten-3" href="{{pathFor 'edit'}}">Notes</a></li>
+						<li><a class="grey-text text-lighten-3" href="{{pathFor 'reveal'}}">{{courseName}}</a></li>
+					{{/if}}
+				{{/if}}
+			<li>{{> loginButtons}}</li>
+	      </ul>
+	    </div>
+  	</nav>
+</template>
